@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWS Korea</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #highlights {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+            background-color: #444; /* Darker background for highlights */
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            opacity: 1; /* Default visibility */
+            transition: opacity 0.3s; /* Smooth transition */
+        }
+        .hidden {
+            opacity: 0; /* Hidden state */
+        }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Load header
             fetch('header.html')
                 .then(response => {
                     if (!response.ok) {
@@ -17,53 +44,53 @@
                     document.getElementById('header').innerHTML = data;
                 })
                 .catch(error => console.error('Error loading header:', error));
+
+            // Load subheader
+            fetch('subheader.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('subheader-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading subheader:', error));
+
+            // Scroll behavior for highlights
+            const highlights = document.getElementById('highlights');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.scrollY;
+                const headerHeight = 70; // Adjust based on your header's height
+
+                if (scrollTop > headerHeight) {
+                    if (scrollTop > lastScrollTop) {
+                        highlights.classList.add('hidden'); // Hide highlights when scrolling down
+                    } else {
+                        highlights.classList.remove('hidden'); // Show highlights when scrolling up
+                    }
+                } else {
+                    highlights.classList.remove('hidden'); // Always show highlights within header
+                }
+                lastScrollTop = scrollTop; // Update last scroll position
+            });
         });
     </script>
 </head>
 <body>
     <div id="header"></div>
-    
-<sub></sub>
 
-<div id="subheader-container"></div>
+    <div id="highlights">
+        <div class="featured-text">Featured Videos:</div>
+        <div class="video-links">
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1">
+            </a>
+            <!-- Add more video links here -->
+        </div>
+    </div>
 
-<script>
-    // Function to load the subheader
-    function loadSubheader() {
-        fetch('subheader.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('subheader-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading subheader:', error));
-    }
-
-    // Load the subheader
-    loadSubheader();
-</script>
-
-   let lastScrollTop = 0;
-const highlights = document.getElementById('highlights');
-highlights.classList.add('visible'); // Initially show the banner
-
-window.addEventListener('scroll', function() {
-    const scrollTop = window.scrollY;
-    const headerHeight = 70; // Adjust this if your header height changes
-
-    if (scrollTop > headerHeight) {
-        if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            highlights.classList.remove('visible'); // Hide highlights
-        } else {
-            // Scrolling up
-            highlights.classList.add('visible'); // Show highlights
-        }
-    } else {
-        highlights.classList.add('visible'); // Always show highlights when within header
-    }
-    lastScrollTop = scrollTop; // Update last scroll position
-});
+    <div id="subheader-container"></div>
 </body>
+</html>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
