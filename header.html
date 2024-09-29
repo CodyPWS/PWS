@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f1f1f1; /* Light background for contrast */
+            padding-top: 70px; /* Adjust based on the header's height */
         }
         header {
             background-color: #000; /* Black background */
@@ -35,7 +36,6 @@
             gap: 25px; /* Even spacing between links */
             margin-left: 40px; /* Space between logo and nav */
             align-items: center; /* Center nav items vertically */
-            height: 50%; /* Ensure nav takes full height of header */
         }
         nav a {
             color: #989797; /* Light gray text */
@@ -51,7 +51,7 @@
         .buttons {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 15px; /* Adjusted gap between buttons */
         }
         .login-button {
             background-color: #fff; /* White button */
@@ -75,8 +75,6 @@
             cursor: pointer;
             width: 30px;
             height: 30px;
-            display: block; /* Show by default */
-            position: relative;
         }
         .search-button::before {
             content: '';
@@ -96,10 +94,6 @@
             border-radius: 5px;
             margin-left: 10px;
             width: 200px; /* Width of the search input */
-        }
-        /* Add padding to body to prevent content from being hidden under the fixed header */
-        body {
-            padding-top: 70px; /* Adjust based on the header's height */
         }
     </style>
 </head>
