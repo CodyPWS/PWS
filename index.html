@@ -12,8 +12,17 @@
         #header, #subheader-container, #home, #footer {
             width: 100%;
         }
+        #subheader-container {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .hidden {
+            opacity: 0;
+        }
     </style>
     <script>
+        let lastScrollTop = 0;
+
         // Function to load an HTML file into a specified element
         function loadHTML(file, elementId) {
             fetch(file)
@@ -34,6 +43,20 @@
             loadHTML('subheader.html', 'subheader-container'); // Load subheader
             loadHTML('home.html', 'home'); // Load home
             loadHTML('footer.html', 'footer'); // Load footer
+
+            window.addEventListener('scroll', function() {
+                let st = window.pageYOffset || document.documentElement.scrollTop;
+                const subheader = document.getElementById('subheader-container');
+                
+                if (st > lastScrollTop) {
+                    // Scrolling down
+                    subheader.classList.add('hidden');
+                } else {
+                    // Scrolling up
+                    subheader.classList.remove('hidden');
+                }
+                lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+            });
         });
     </script>
 </head>
@@ -44,4 +67,3 @@
     <div id="footer"></div>
 </body>
 </html>
-
