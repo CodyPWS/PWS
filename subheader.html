@@ -19,13 +19,16 @@
             justify-content: flex-start; /* Align items to the left */
             padding: 5px 10px; /* Smaller padding for a compact look */
             z-index: 999; /* Ensure it's below header */
-            position: relative; /* Context for position */
+            position: fixed; /* Fixed position for fade effect */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            right: 0; /* Align to the right */
             background-color: #444; /* Darker gray background */
-            opacity: 1; /* Initial opacity */
+            opacity: 0; /* Initial opacity for fade effect */
             transition: opacity 0.3s ease; /* Fade effect */
         }
-        .hidden {
-            opacity: 0; /* Fade out effect */
+        .visible {
+            opacity: 1; /* Fully visible when added */
         }
         .featured-text {
             font-size: 0.9rem; /* Smaller font size for the featured text */
@@ -96,17 +99,28 @@
 </div>
 
 <script>
+    let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
         const highlights = document.getElementById('highlights');
         const headerHeight = document.querySelector('.header')?.offsetHeight || 0; // Optional chaining for safety
+        const scrollTop = window.scrollY;
 
-        if (window.scrollY > headerHeight) {
-            highlights.classList.add('hidden'); // Hide highlights when scrolling past header
+        if (scrollTop > headerHeight) {
+            if (scrollTop > lastScrollTop) {
+                highlights.classList.remove('visible'); // Hide highlights when scrolling down
+            } else {
+                highlights.classList.add('visible'); // Show highlights when scrolling up
+            }
         } else {
-            highlights.classList.remove('hidden'); // Show highlights when within header
+            highlights.classList.add('visible'); // Always show highlights when within header
         }
+        lastScrollTop = scrollTop; // Update last scroll position
     });
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
