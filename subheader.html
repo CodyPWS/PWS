@@ -7,25 +7,30 @@
     <style>
         /* General Styling */
         body {
-            background-color: #3f51b5; /* Soft aggressive blue */
+            background-color: #fff; /* Set background to white */
             font-family: 'Anton', sans-serif; /* Strong presence font */
             margin: 0;
-            padding: 70px 0 0; /* Prevent content from hiding under fixed header */
-            color: #fff; /* White text for readability */
+            padding: 70px 0; /* Prevent content from hiding under fixed header */
+            color: #000; /* Change text color to black for readability */
         }
         .highlights-banner {
             display: flex;
             align-items: center; /* Center items vertically */
-            justify-content: center; /* Center items horizontally */
-            padding: 10px 20px; /* Smaller padding for a compact look */
+            justify-content: flex-start; /* Align items to the left */
+            padding: 5px 10px; /* Smaller padding for a compact look */
             z-index: 999; /* Ensure it's below header */
             position: relative; /* Context for position */
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            background-color: #444; /* Darker gray background */
+            opacity: 1; /* Initial opacity */
+            transition: opacity 0.3s ease; /* Fade effect */
         }
-        .featured-title {
-            font-size: 1rem; /* Smaller font size */
-            margin-right: 20px; /* Space between title and cards */
-            white-space: nowrap; /* Prevent wrapping */
+        .hidden {
+            opacity: 0; /* Fade out effect */
+        }
+        .featured-text {
+            font-size: 0.9rem; /* Smaller font size for the featured text */
+            color: #fff; /* White color for contrast */
+            margin-right: 20px; /* Space between text and video links */
         }
         .video-links {
             display: flex;
@@ -41,54 +46,51 @@
             background-color: #222; /* Dark background for video links */
             border-radius: 8px; /* Slightly rounded corners */
             text-decoration: none;
-            width: 200px; /* Fixed width for consistency */
+            width: 120px; /* Wider fixed width for consistency */
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for depth */
             overflow: hidden; /* Hide overflow for rounded corners */
         }
-        .video-link:hover {
+        .video-link:hover,
+        .video-link:focus { /* Add focus state for accessibility */
             transform: scale(1.05); /* Slight zoom on hover */
+            outline: 2px solid #fff; /* Visual focus indicator */
         }
         .thumbnail {
             width: 100%;
-            height: 100px; /* Fixed height for thumbnails */
+            height: 75px; /* Fixed height for thumbnails (adjusted) */
             object-fit: cover; /* Cover aspect ratio */
         }
-        .video-title {
-            padding: 5px; /* Smaller padding */
-            font-size: 14px; /* Smaller title font size */
-            text-align: center; /* Center title */
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .video-link {
+                width: 100px; /* Smaller width for mobile */
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="highlights-banner" id="highlights">
-    <div class="featured-title">Featured Highlights</div>
+    <div class="featured-text">Featured Videos:</div>
     <div class="video-links">
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1">
-            <div class="video-title">Highlight 1</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 1">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1 Thumbnail">
         </a>
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 2">
-            <div class="video-title">Highlight 2</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 2">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 2 Thumbnail">
         </a>
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 3">
-            <div class="video-title">Highlight 3</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 3">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 3 Thumbnail">
         </a>
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 4">
-            <div class="video-title">Highlight 4</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 4">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 4 Thumbnail">
         </a>
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5">
-            <div class="video-title">Highlight 5</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 5">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5 Thumbnail">
         </a>
-        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 6">
-            <div class="video-title">Highlight 6</div>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank" aria-label="Watch Highlight 6">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 6 Thumbnail">
         </a>
     </div>
 </div>
@@ -96,7 +98,7 @@
 <script>
     window.addEventListener('scroll', function() {
         const highlights = document.getElementById('highlights');
-        const headerHeight = document.querySelector('.header').offsetHeight;
+        const headerHeight = document.querySelector('.header')?.offsetHeight || 0; // Optional chaining for safety
 
         if (window.scrollY > headerHeight) {
             highlights.classList.add('hidden'); // Hide highlights when scrolling past header
