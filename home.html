@@ -14,9 +14,6 @@
             color: #000;
         }
         .event-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 20px; /* Space between cards */
             padding: 20px; /* Overall padding for the container */
         }
         .event-card {
@@ -25,6 +22,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
             overflow: hidden; /* Hide overflow for rounded corners */
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+            height: 350px; /* Set a fixed height for uniformity */
         }
         .event-card:hover {
             transform: scale(1.05); /* Slight zoom on hover */
@@ -35,8 +33,14 @@
             height: 150px; /* Fixed height for thumbnails */
             object-fit: cover; /* Maintain aspect ratio */
         }
+        .card-body {
+            display: flex; /* Flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: space-between; /* Space out the content evenly */
+            height: 100%; /* Make body take full height of the card */
+            padding: 10px; /* Add padding */
+        }
         .event-title {
-            padding: 10px; /* Padding for title */
             font-size: 1.2rem; /* Title font size */
             text-align: center; /* Center title */
             color: #333; /* Darker text color */
@@ -48,31 +52,47 @@
 <div id="header"></div>
 <div id="subheader-container"></div>
 
+<!-- Upcoming Events Section -->
 <div class="event-container">
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event1.jpg" alt="Event 1">
-        <div class="event-title">Event Title 1</div>
-    </a>
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event2.jpg" alt="Event 2">
-        <div class="event-title">Event Title 2</div>
-    </a>
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event3.jpg" alt="Event 3">
-        <div class="event-title">Event Title 3</div>
-    </a>
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event4.jpg" alt="Event 4">
-        <div class="event-title">Event Title 4</div>
-    </a>
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event5.jpg" alt="Event 5">
-        <div class="event-title">Event Title 5</div>
-    </a>
-    <a class="event-card" href="#">
-        <img class="event-thumbnail" src="event6.jpg" alt="Event 6">
-        <div class="event-title">Event Title 6</div>
-    </a>
+    <h2 class="section-title">Upcoming Events</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="event-thumbnail" alt="Event 1">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS: Drag Slam</h5>
+                    <p class="card-text">Date: October 5, 2024<br>Doors: 7PM<br> Showtime: 9PM<br>Location: <b>Rabbithole</b><br>Itaewon, Seoul, South Korea</p>
+                    <a href="#" class="btn btn-primary">Buy Tickets</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="event-thumbnail" alt="Event 2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS</h5>
+                    <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
+                    <a href="#" class="btn btn-primary">Buy Tickets</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="event-thumbnail" alt="Event 3">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS: Next Step</h5>
+                    <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
+                    <a href="#" class="btn btn-primary">Buy Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
