@@ -4,27 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Wrestling Society Korea</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-</head>
-
-    <script>
-        // Function to load the header
-        function loadHeader() {
+       <script>
+        window.onload = function() {
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header').innerHTML = data;
                 })
                 .catch(error => console.error('Error loading header:', error));
-        }
-
-        // Execute the function when the page loads
-        window.onload = loadHeader;
+        };
     </script>
-</body>
-</html>
-
-
 <sub></sub>
 
 <html lang="en">
