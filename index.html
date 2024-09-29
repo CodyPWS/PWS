@@ -9,15 +9,24 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        #header, #subheader-container, #home, #footer {
-            width: 100%;
+        #header {
+            position: fixed;  /* Keeps the header fixed at the top */
+            top: 0;          /* Aligns it at the top of the viewport */
+            left: 0;         /* Aligns it to the left */
+            width: 100%;     /* Full width */
+            height: 60px;    /* Adjust based on your header height */
+            background: lightgray; /* Background color */
+            z-index: 1000;   /* Ensures it stays on top */
         }
         #subheader-container {
+            margin-top: 60px; /* Match this with the header's height */
+            padding: 10px;     /* Add padding for spacing */
+            background: darkgray; /* Background color for visibility */
             opacity: 1;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease; /* Transition for fading effect */
         }
-        .hidden {
-            opacity: 0;
+        #home, #footer {
+            width: 100%;
         }
     </style>
     <script>
