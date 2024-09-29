@@ -42,7 +42,28 @@
     loadSubheader();
 </script>
 
-    <body></body>
+   let lastScrollTop = 0;
+const highlights = document.getElementById('highlights');
+highlights.classList.add('visible'); // Initially show the banner
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const headerHeight = 70; // Adjust this if your header height changes
+
+    if (scrollTop > headerHeight) {
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            highlights.classList.remove('visible'); // Hide highlights
+        } else {
+            // Scrolling up
+            highlights.classList.add('visible'); // Show highlights
+        }
+    } else {
+        highlights.classList.add('visible'); // Always show highlights when within header
+    }
+    lastScrollTop = scrollTop; // Update last scroll position
+});
+</body>
 
     <!-- Hero Banner -->
     <div class="hero-banner">
