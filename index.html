@@ -9,7 +9,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        #header, #subheader-container {
+        #header, #subheader-container, #home, #footer {
             width: 100%;
         }
     </style>
@@ -32,210 +32,16 @@
         document.addEventListener("DOMContentLoaded", function() {
             loadHTML('header.html', 'header'); // Load header
             loadHTML('subheader.html', 'subheader-container'); // Load subheader
+            loadHTML('home.html', 'home'); // Load home
+            loadHTML('footer.html', 'footer'); // Load footer
         });
     </script>
 </head>
 <body>
     <div id="header"></div>
     <div id="subheader-container"></div>
+    <div id="home"></div>
+    <div id="footer"></div>
 </body>
 </html>
 
-
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <h1>We Are PWS 우리는 PWS입니다</h1>
-        <p>The Ultimate Korean Wrestling Experience 궁극적인 한국 레슬링 경험</p>
-    </div>
-
-    <!-- Upcoming Events Section -->
-    <div class="container">
-        <h2 class="section-title">Upcoming Events</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card event-card">
-<html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Overlay Example</title>
-    <style>
-        .gradient-overlay {
-            position: relative;
-            display: inline-block; /* or block */
-        }
-
-        .gradient-overlay img {
-            display: block; /* Remove space below image */
-            width: 100%; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .gradient-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-            z-index: 1; /* Position it above the image */
-        }
-    </style>
-<div class="gradient-overlay">
-    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="card-img-top" alt="Logo">
-</div>
-                    <div class="card-body">
-                        <h5 class="card-title">PWS: Drag Slam</h5>
-                        <p class="card-text">Date: October 5, 2024<br>Doors: 7PM<br> Showtime: 9PM<br>Location: <b>Rabbithole</b><br> Itaewon, Seoul, South Korea, 37 Sinheung-ro 1B <BR><BR> 래빗홀, 서울시 용산구 신흥로 37 지하 1층</p>
-                        <a href="#" class="btn btn-primary">Buy Tickets</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card event-card">
-                    <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Overlay Example</title>
-    <style>
-        .gradient-overlay {
-            position: relative;
-            display: inline-block; /* or block */
-        }
-
-        .gradient-overlay img {
-            display: block; /* Remove space below image */
-            width: 100%; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .gradient-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-            z-index: 1; /* Position it above the image */
-        }
-    </style>
-<div class="gradient-overlay">
-    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Logo">
-</div>
-                    <div class="card-body">
-                        <h5 class="card-title">PWS</h5>
-                        <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
-                        <a href="#" class="btn btn-primary">Buy Tickets</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card event-card">
-                    <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Overlay Example</title>
-    <style>
-        .gradient-overlay {
-            position: relative;
-            display: inline-block; /* or block */
-        }
-
-        .gradient-overlay img {
-            display: block; /* Remove space below image */
-            width: 100%; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .gradient-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-            z-index: 1; /* Position it above the image */
-        }
-    </style>
-<div class="gradient-overlay">
-    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Logo">
-</div>
-                    <div class="card-body">
-                        <h5 class="card-title">PWS: Next Step</h5>
-                        <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location:  <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
-                        <a href="#" class="btn btn-primary">Buy Tickets</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Merchandise Section -->
-    <div class="container">
-        <h2 class="section-title">Featured Merchandise</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card merch-card">
-                    <img src="merch1.jpg" class="card-img-top" alt="Merchandise 1">
-                    <div class="card-body">
-                        <h5 class="card-title">T-Shirt</h5>
-                        <p class="card-text">$20.00</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card merch-card">
-                    <img src="merch2.jpg" class="card-img-top" alt="Merchandise 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Wrestling Mask</h5>
-                        <p class="card-text">$15.00</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card merch-card">
-                    <img src="merch3.jpg" class="card-img-top" alt="Merchandise 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Poster</h5>
-                        <p class="card-text">$10.00</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- News Section -->
-    <div class="container">
-        <h2 class="section-title">Latest News</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Title of News Article 1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec...</p>
-                <a href="#">Read more</a>
-            </div>
-            <div class="col-md-6">
-                <h4>Title of News Article 2</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec...</p>
-                <a href="#">Read more</a>
-            </div>
-        </div>
-    </div>
-<BR>
-    <BR>
-        <BR>
-            <BR>
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Pro Wrestling Soceity. All rights reserved.</p>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-</html>
