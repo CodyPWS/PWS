@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWE Style Header</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f1f1f1; /* Light background for contrast */
+        }
+        header {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed; /* Lock header at the top */
+            width: 100%; /* Ensure it spans the entire width */
+            top: 0; /* Position it at the top */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+        .logo {
+            display: flex;
+            align-items: center; /* Vertically center logo and nav */
+        }
+        .logo img {
+            max-height: 60px; /* Logo height */
+        }
+        nav {
+            display: flex;
+            gap: 25px; /* Even spacing between links */
+            margin-left: 40px; /* Space between logo and nav */
+            align-items: center; /* Center nav items vertically */
+            height: 50%; /* Ensure nav takes full height of header */
+        }
+        nav a {
+            color: #989797; /* Light gray text */
+            text-decoration: none;
+            font-size: 20px; /* Adjusted font size */
+            padding: 20px 15px; /* Padding for clickable area */
+            transition: color 0.3s; /* Smooth transition for hover */
+            font-family: 'Anton', sans-serif; /* Use Anton font for nav links */
+        }
+        nav a:hover {
+            color: #fff; /* Change text color on hover */
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .login-button {
+            background-color: #fff; /* White button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 8px 15px;
+            color: #000; /* Black text */
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #e6e6e6; /* Light gray on hover */
+        }
+        .search-container {
+            position: relative;
+        }
+        .search-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: block; /* Show by default */
+            position: relative;
+        }
+        .search-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff; /* White border */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .search-input {
+            display: none;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            width: 200px; /* Width of the search input */
+        }
+        /* Add padding to body to prevent content from being hidden under the fixed header */
+        body {
+            padding-top: 70px; /* Adjust based on the header's height */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" alt="Logo">
+            </a>
+            <nav>
+                <a href="#">Network</a>
+                <a href="#">Events</a>
+                <a href="#">Stars</a>
+                <a href="#">Tickets</a>
+                <a href="#">Merch</a>
+            </nav>
+        </div>
+        <div class="buttons">
+            <button class="login-button" onclick="loginFunction()">Log In</button>
+            <div class="search-container">
+                <button class="search-button" id="searchButton" onclick="toggleSearch()"></button>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()">
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        function toggleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+                searchButton.style.display = 'none'; // Hide magnifying glass when search bar is open
+            } else {
+                searchInput.style.display = 'none';
+                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
+            }
+        }
+
+        function hideSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            if (searchInput.style.display === 'block') {
+                searchInput.style.display = 'none';
+                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
+            }
+        }
+
+        function loginFunction() {
+            alert('Log in button clicked');
+        }
+    </script>
+</body>
+</html>
+
+<sub></sub>
+
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights Subbanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .highlights-banner {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .highlights-banner h2 {
+            margin-bottom: 20px;
+        }
+        .video-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .video-link {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            width: 150px;
+            transition: background-color 0.3s;
+        }
+        .video-link:hover {
+            background-color: #444;
+        }
+        .thumbnail {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Highlights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .header {
+            background-color: #343a40; /* Example header color */
+            color: white;
+            padding: 10px;
+            position: fixed; /* Fix header at top */
+            width: 100%;
+            z-index: 1000; /* Ensure it's on top */
+        }
+        .highlights-banner {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+            opacity: 1;
+            transition: opacity 0.5s;
+            position: relative; /* Context for fading */
+            z-index: 999; /* Below header */
+        }
+        .highlights-banner.hidden {
+            opacity: 0; /* Hide highlights */
+        }
+        .highlights-banner h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem; /* Make the font size smaller */
+        }
+        .video-links {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .video-links::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+        }
+        .video-link {
+            background-color: #333;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            width: 150px;
+            margin-right: 15px; /* Space between video links */
+            transition: background-color 0.3s;
+        }
+        .video-link:hover {
+            background-color: #444;
+        }
+        .thumbnail {
+            width: 100%;
+            height: 140px; /* Set a fixed height for the thumbnail */
+            object-fit: cover; /* Cover aspect ratio */
+            border-radius: 5px 5px 0 0; /* Rounded top corners */
+        }
+        .video-title {
+            padding: 10px;
+            font-size: 14px; /* Smaller title font size */
+        }
+    </style>
+
+<div class="highlights-banner" id="highlights">
+    <h2>Featured Highlights</h2>
+    <div class="video-links">
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1">
+            <div class="video-title">Highlight 1</div>
+        </a>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 2">
+            <div class="video-title">Highlight 2</div>
+        </a>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 3">
+            <div class="video-title">Highlight 3</div>
+        </a>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 4">
+            <div class="video-title">Highlight 4</div>
+        </a>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5">
+            <div class="video-title">Highlight 5</div>
+        </a>
+        <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+            <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5">
+            <div class="video-title">Highlight 6</div>
+        </a>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const highlights = document.getElementById('highlights');
+        const headerHeight = document.querySelector('.header').offsetHeight;
+
+        if (window.scrollY > headerHeight) {
+            highlights.classList.add('hidden'); // Hide highlights when scrolling past header
+        } else {
+            highlights.classList.remove('hidden'); // Show highlights when within header
+        }
+    });
+</script>
+
+</body>
+</html>
+
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrestling Promotion | Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .hero-banner {
+            background-image: url('banner.jpg'); /* Replace with your banner image */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .hero-banner h1 {
+            font-size: 4rem;
+        }
+        .highlights-banner {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: left; /* Align text to the left */
+        }
+        .highlights-banner h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem; /* Make the font size smaller */
+        }
+        .video-links {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .video-links::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+        }
+        .video-link {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            width: 150px;
+            margin-right: 15px; /* Space between video links */
+            transition: background-color 0.3s;
+        }
+        .video-link:hover {
+            background-color: #444;
+        }
+        .thumbnail {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .event-card, .merch-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .event-card:hover, .merch-card:hover {
+            transform: translateY(-5px);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS | Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .hero-banner {
+            background-image: url('banner.jpg'); /* Replace with your banner image */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .hero-banner h1 {
+            font-size: 4rem;
+        }
+        .highlights-banner {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: left; /* Align text to the left */
+        }
+        .highlights-banner h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem; /* Make the font size smaller */
+        }
+        .video-links {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+        .video-links::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+        }
+        .video-link {
+            position: relative;
+            background-color: #333;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            width: 250px; /* Wider width for better aspect ratio */
+            margin-right: 15px; /* Space between video links */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+        }
+        .video-link:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+        }
+        .thumbnail {
+            width: 100%;
+            height: 140px; /* Set a fixed height for the thumbnail */
+            object-fit: cover; /* Cover aspect ratio */
+            border-radius: 5px 5px 0 0; /* Rounded top corners */
+        }
+        .video-title {
+            padding: 10px;
+            font-size: 14px; /* Smaller title font size */
+        }
+        .event-card, .merch-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .event-card:hover, .merch-card:hover {
+            transform: translateY(-5px);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+
+<script>
+    // Your existing JavaScript code goes here
+</script>
+
+</body>
+</html>
+
+
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h1>We Are PWS 우리는 PWS입니다</h1>
+        <p>The Ultimate Korean Wrestling Experience 궁극적인 한국 레슬링 경험</p>
+    </div>
+
+    <!-- Upcoming Events Section -->
+    <div class="container">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card event-card">
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Overlay Example</title>
+    <style>
+        .gradient-overlay {
+            position: relative;
+            display: inline-block; /* or block */
+        }
+
+        .gradient-overlay img {
+            display: block; /* Remove space below image */
+            width: 100%; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1; /* Position it above the image */
+        }
+    </style>
+<div class="gradient-overlay">
+    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="card-img-top" alt="Logo">
+</div>
+                    <div class="card-body">
+                        <h5 class="card-title">PWS: Drag Slam</h5>
+                        <p class="card-text">Date: October 5, 2024<br>Doors: 7PM<br> Showtime: 9PM<br>Location: <b>Rabbithole</b><br> Itaewon, Seoul, South Korea, 37 Sinheung-ro 1B <BR><BR> 래빗홀, 서울시 용산구 신흥로 37 지하 1층</p>
+                        <a href="#" class="btn btn-primary">Buy Tickets</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card event-card">
+                    <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Overlay Example</title>
+    <style>
+        .gradient-overlay {
+            position: relative;
+            display: inline-block; /* or block */
+        }
+
+        .gradient-overlay img {
+            display: block; /* Remove space below image */
+            width: 100%; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1; /* Position it above the image */
+        }
+    </style>
+<div class="gradient-overlay">
+    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Logo">
+</div>
+                    <div class="card-body">
+                        <h5 class="card-title">PWS</h5>
+                        <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
+                        <a href="#" class="btn btn-primary">Buy Tickets</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card event-card">
+                    <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Overlay Example</title>
+    <style>
+        .gradient-overlay {
+            position: relative;
+            display: inline-block; /* or block */
+        }
+
+        .gradient-overlay img {
+            display: block; /* Remove space below image */
+            width: 100%; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1; /* Position it above the image */
+        }
+    </style>
+<div class="gradient-overlay">
+    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Logo">
+</div>
+                    <div class="card-body">
+                        <h5 class="card-title">PWS: Next Step</h5>
+                        <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location:  <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
+                        <a href="#" class="btn btn-primary">Buy Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merchandise Section -->
+    <div class="container">
+        <h2 class="section-title">Featured Merchandise</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card merch-card">
+                    <img src="merch1.jpg" class="card-img-top" alt="Merchandise 1">
+                    <div class="card-body">
+                        <h5 class="card-title">T-Shirt</h5>
+                        <p class="card-text">$20.00</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card merch-card">
+                    <img src="merch2.jpg" class="card-img-top" alt="Merchandise 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Wrestling Mask</h5>
+                        <p class="card-text">$15.00</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card merch-card">
+                    <img src="merch3.jpg" class="card-img-top" alt="Merchandise 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Poster</h5>
+                        <p class="card-text">$10.00</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="container">
+        <h2 class="section-title">Latest News</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Title of News Article 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec...</p>
+                <a href="#">Read more</a>
+            </div>
+            <div class="col-md-6">
+                <h4>Title of News Article 2</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec...</p>
+                <a href="#">Read more</a>
+            </div>
+        </div>
+    </div>
+<BR>
+    <BR>
+        <BR>
+            <BR>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Pro Wrestling Soceity. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
