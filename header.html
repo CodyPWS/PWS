@@ -1,153 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f1f1f1; /* Light background for contrast */
-            padding-top: 70px; /* Adjust based on the header's height */
-        }
-        header {
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: fixed; /* Lock header at the top */
-            width: 100%; /* Ensure it spans the entire width */
-            top: 0; /* Position it at the top */
-            z-index: 1000; /* Ensure it appears above other content */
-        }
-        .logo {
-            display: flex;
-            align-items: center; /* Vertically center logo and nav */
-        }
-        .logo img {
-            max-height: 60px; /* Logo height */
-        }
-        nav {
-            display: flex;
-            gap: 25px; /* Even spacing between links */
-            margin-left: 40px; /* Space between logo and nav */
-            align-items: center; /* Center nav items vertically */
-        }
-        nav a {
-            color: #989797; /* Light gray text */
-            text-decoration: none;
-            font-size: 20px; /* Adjusted font size */
-            padding: 20px 15px; /* Padding for clickable area */
-            transition: color 0.3s; /* Smooth transition for hover */
-            font-family: 'Anton', sans-serif; /* Use Anton font for nav links */
-        }
-        nav a:hover {
-            color: #fff; /* Change text color on hover */
-        }
-        .buttons {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Adjusted gap between buttons */
-        }
-        .login-button {
-            background-color: #fff; /* White button */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 8px 15px;
-            color: #000; /* Black text */
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .login-button:hover {
-            background-color: #e6e6e6; /* Light gray on hover */
-        }
-        .search-container {
-            position: relative;
-        }
-        .search-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-        }
-        .search-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #fff; /* White border */
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .search-input {
-            display: none;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-left: 10px;
-            width: 200px; /* Width of the search input */
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="#">
-                <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" alt="Logo">
-            </a>
-            <nav>
-                <a href="#">Network</a>
-                <a href="#">Events</a>
-                <a href="#">Stars</a>
-                <a href="#">Tickets</a>
-                <a href="#">Merch</a>
-            </nav>
+<header>
+    <div class="logo">
+        <a href="#">
+            <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" alt="Logo">
+        </a>
+        <nav>
+            <a href="#">Network</a>
+            <a href="events.html">Events</a> <!-- Updated link to events.html -->
+            <a href="roster.html">Players</a> <!-- Changed "Stars" to "Players" and updated link -->
+            <a href="#">Tickets</a>
+            <a href="#">Merch</a>
+        </nav>
+    </div>
+    <div class="buttons">
+        <button class="login-button" onclick="loginFunction()">Log In</button>
+        <div class="search-container">
+            <button class="search-button" id="searchButton" onclick="toggleSearch()"></button>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()">
         </div>
-        <div class="buttons">
-            <button class="login-button" onclick="loginFunction()">Log In</button>
-            <div class="search-container">
-                <button class="search-button" id="searchButton" onclick="toggleSearch()"></button>
-                <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()">
-            </div>
-        </div>
-    </header>
-    
-    <script>
-        function toggleSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+    </div>
+</header>
 
-            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
-                searchInput.style.display = 'block';
-                searchInput.focus();
-                searchButton.style.display = 'none'; // Hide magnifying glass when search bar is open
-            } else {
-                searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
-            }
+<script>
+    function toggleSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+            searchInput.style.display = 'block';
+            searchInput.focus();
+            searchButton.style.display = 'none'; // Hide magnifying glass when search bar is open
+        } else {
+            searchInput.style.display = 'none';
+            searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
         }
+    }
 
-        function hideSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+    function hideSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
 
-            if (searchInput.style.display === 'block') {
-                searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
-            }
+        if (searchInput.style.display === 'block') {
+            searchInput.style.display = 'none';
+            searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
         }
+    }
 
-        function loginFunction() {
-            alert('Log in button clicked');
-        }
-    </script>
-</body>
-</html>
+    function loginFunction() {
+        alert('Log in button clicked');
+    }
+</script>
