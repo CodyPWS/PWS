@@ -13,8 +13,21 @@
             padding: 0;
             color: #000;
         }
-        .event-container {
+        .container {
             padding: 20px; /* Overall padding for the container */
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out the columns */
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+        .col-md-4 {
+            flex: 1 1 30%; /* Flex grow, shrink, and basis */
+            margin: 10px; /* Margin for spacing */
         }
         .event-card {
             background-color: #fff; /* White background for cards */
@@ -22,28 +35,50 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
             overflow: hidden; /* Hide overflow for rounded corners */
             transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
-            height: 350px; /* Set a fixed height for uniformity */
+            height: 400px; /* Fixed height for uniformity */
+            display: flex;
+            flex-direction: column; /* Arrange children in a column */
         }
-        .event-card:hover {
-            transform: scale(1.05); /* Slight zoom on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+        .gradient-overlay {
+            position: relative;
+            flex-grow: 0; /* Prevent grow */
+            flex-shrink: 0; /* Prevent shrink */
+            height: 200px; /* Fixed height for image area */
         }
-        .event-thumbnail {
-            width: 100%;
-            height: 150px; /* Fixed height for thumbnails */
+        .gradient-overlay img {
+            display: block; /* Remove space below image */
+            width: 100%; /* Adjust as needed */
+            height: 100%; /* Fill the height */
             object-fit: cover; /* Maintain aspect ratio */
         }
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1; /* Position it above the image */
+        }
         .card-body {
+            padding: 10px; /* Padding for card body */
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Arrange children in a column */
             justify-content: space-between; /* Space out the content evenly */
-            height: 100%; /* Make body take full height of the card */
-            padding: 10px; /* Add padding */
+            flex-grow: 1; /* Allow it to grow to fill space */
         }
-        .event-title {
+        .card-title {
             font-size: 1.2rem; /* Title font size */
-            text-align: center; /* Center title */
             color: #333; /* Darker text color */
+            margin: 0; /* Remove margin */
+        }
+        .card-text {
+            flex-grow: 1; /* Allow it to grow */
+            margin: 10px 0; /* Margin for spacing */
+        }
+        .btn-primary {
+            align-self: center; /* Center button */
         }
     </style>
 </head>
@@ -53,17 +88,17 @@
 <div id="subheader-container"></div>
 
 <!-- Upcoming Events Section -->
-<div class="event-container">
+<div class="container">
     <h2 class="section-title">Upcoming Events</h2>
     <div class="row">
         <div class="col-md-4">
             <div class="card event-card">
                 <div class="gradient-overlay">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="event-thumbnail" alt="Event 1">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="card-img-top" alt="Event 1">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">PWS: Drag Slam</h5>
-                    <p class="card-text">Date: October 5, 2024<br>Doors: 7PM<br> Showtime: 9PM<br>Location: <b>Rabbithole</b><br>Itaewon, Seoul, South Korea</p>
+                    <p class="card-text">Date: October 5, 2024<br>Doors: 7PM<br>Showtime: 9PM<br>Location: <b>Rabbithole</b><br>Itaewon, Seoul, South Korea</p>
                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                 </div>
             </div>
@@ -71,11 +106,11 @@
         <div class="col-md-4">
             <div class="card event-card">
                 <div class="gradient-overlay">
-                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="event-thumbnail" alt="Event 2">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Event 2">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">PWS</h5>
-                    <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
+                    <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                 </div>
             </div>
@@ -83,11 +118,11 @@
         <div class="col-md-4">
             <div class="card event-card">
                 <div class="gradient-overlay">
-                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="event-thumbnail" alt="Event 3">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="Event 3">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">PWS: Next Step</h5>
-                    <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br> Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
+                    <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea</p>
                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                 </div>
             </div>
