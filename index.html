@@ -14,38 +14,25 @@
         }
     </style>
     <script>
-        // Function to load the header
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('header.html')
+        // Function to load an HTML file into a specified element
+        function loadHTML(file, elementId) {
+            fetch(file)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                        throw new Error(`Could not load ${file}: ${response.statusText}`);
                     }
                     return response.text();
                 })
                 .then(data => {
-                    document.getElementById('header').innerHTML = data;
+                    document.getElementById(elementId).innerHTML = data;
                 })
-                .catch(error => console.error('Error loading header:', error));
-        });
-
-        // Function to load the subheader
-        function loadSubheader() {
-            fetch('subheader.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('subheader-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading subheader:', error));
+                .catch(error => console.error('Error loading:', error));
         }
 
-        // Load the subheader after the DOM content is loaded
-        document.addEventListener("DOMContentLoaded", loadSubheader);
+        document.addEventListener("DOMContentLoaded", function() {
+            loadHTML('header.html', 'header'); // Load header
+            loadHTML('subheader.html', 'subheader-container'); // Load subheader
+        });
     </script>
 </head>
 <body>
