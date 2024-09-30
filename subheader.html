@@ -79,21 +79,21 @@
 </div>
 
 <script>
-         let lastScrollTop = 0;
-        const subheader = document.getElementById('subheader');
+        let lastScrollTop = 0;
+const subheader = document.getElementById('subheader');
 
-        window.addEventListener('scroll', function() {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener('scroll', function() {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (st > lastScrollTop) {
-                // Scrolling down
-                subheader.style.top = '-50px'; // Hide the subheader
-            } else {
-                // Scrolling up
-                subheader.style.top = '50px'; // Show the subheader
-            }
-            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        });
+    if (st > lastScrollTop) {
+        // Scrolling down
+        subheader.style.top = '-50px'; // Hide the subheader
+    } else {
+        // Scrolling up
+        subheader.style.top = '0'; // Show the subheader
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+});
 </script>
 
 </body>
