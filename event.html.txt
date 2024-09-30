@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upcoming Events</h1>
+        <div class="events-section" id="upcoming-events">
+            <div class="event-banner" style="background-image: url('upcoming-event1.jpg');">
+                <a href="upcoming-event1.html" class="banner-link">
+                    <div class="event-title">Upcoming Event 1</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('upcoming-event2.jpg');">
+                <a href="upcoming-event2.html" class="banner-link">
+                    <div class="event-title">Upcoming Event 2</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('upcoming-event3.jpg');">
+                <a href="upcoming-event3.html" class="banner-link">
+                    <div class="event-title">Upcoming Event 3</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('upcoming-event4.jpg');">
+                <a href="upcoming-event4.html" class="banner-link">
+                    <div class="event-title">Upcoming Event 4</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('upcoming-event5.jpg');">
+                <a href="upcoming-event5.html" class="banner-link">
+                    <div class="event-title">Upcoming Event 5</div>
+                </a>
+            </div>
+        </div>
+
+        <h1>Past Events</h1>
+        <div class="events-section" id="past-events">
+            <div class="event-banner" style="background-image: url('past-event1.jpg');">
+                <a href="past-event1.html" class="banner-link">
+                    <div class="event-title">Past Event 1</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('past-event2.jpg');">
+                <a href="past-event2.html" class="banner-link">
+                    <div class="event-title">Past Event 2</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('past-event3.jpg');">
+                <a href="past-event3.html" class="banner-link">
+                    <div class="event-title">Past Event 3</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('past-event4.jpg');">
+                <a href="past-event4.html" class="banner-link">
+                    <div class="event-title">Past Event 4</div>
+                </a>
+            </div>
+            <div class="event-banner" style="background-image: url('past-event5.jpg');">
+                <a href="past-event5.html" class="banner-link">
+                    <div class="event-title">Past Event 5</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
