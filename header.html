@@ -21,7 +21,6 @@
             justify-content: space-between;
             width: 100%; /* Ensure it spans the entire width */
             height: 50px;
-            
             z-index: 1000; /* Ensure it appears above other content */
         }
         .logo {
@@ -91,7 +90,7 @@
             transform: translate(-50%, -50%);
         }
         .search-input {
-            display: none;
+            display: none; /* Initially hidden */
             padding: 10px;
             border: none;
             border-radius: 5px;
@@ -142,10 +141,10 @@
             if (searchInput.style.display === 'none' || searchInput.style.display === '') {
                 searchInput.style.display = 'block';
                 searchInput.focus();
-                searchButton.style.display = 'none'; // Hide magnifying glass when search bar is open
+                searchButton.style.display = 'none'; // Hide button when search bar is open
             } else {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
+                searchButton.style.display = 'block'; // Show button when search bar is closed
             }
         }
 
@@ -155,13 +154,18 @@
 
             if (searchInput.style.display === 'block') {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show magnifying glass when search bar is closed
+                searchButton.style.display = 'block'; // Show button when search bar is closed
             }
         }
 
         function loginFunction() {
             alert('Log in button clicked');
         }
+
+        // Ensure search input starts hidden
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('searchInput').style.display = 'none';
+        });
     </script>
 </body>
 </html>
