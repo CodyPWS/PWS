@@ -28,16 +28,11 @@
 
         /* Updated styles for Belt Holders section */
         .belt-holders {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
+            background-color: #fff;
             padding: 20px;
-            background-color: white; /* White wrap around cards */
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
 
         .belt-holders .roster-card {
             background-size: cover;
@@ -49,7 +44,12 @@
             position: relative;
             transition: transform 0.3s ease;
         }
-
+        
+        /* Tablet layout */
+        @media(max-width: 768px) {
+            .roster-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
         /* General styles for PWS and Next Step sections */
         .roster-section {
             display: grid;
