@@ -129,6 +129,8 @@
         </div>
         <div class="buttons">
             <button class="login-button" onclick="loginFunction()">Log In</button>
+           <button onclick="setLanguage('en')">EN</button>
+           <button onclick="setLanguage('kr')">KR</button>
             <div class="search-container">
                 <button class="search-button" id="searchButton" aria-label="Search" onclick="toggleSearch()"></button>
                 <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
@@ -169,7 +171,61 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('searchInput').style.display = 'none';
         });
+
+const translations = {
+    en: {
+        header: {
+            channel: "Channel",
+            events: "Events",
+            players: "Players",
+            tickets: "Tickets",
+            merch: "Merch",
+            subheader: "Subheader Content"
+        },
+        main: {
+            title: "Main Content",
+            scrollPrompt: "Scroll down to see the subheader hide.",
+            moreContent: "More content to enable scrolling."
+        }
+    },
+    kr: {
+        header: {
+            channel: "채널",
+            events: "이벤트",
+            players: "선수",
+            tickets: "티켓",
+            merch: "상품",
+            subheader: "서브헤더 내용"
+        },
+        main: {
+            title: "주요 콘텐츠",
+            scrollPrompt: "스크롤 다운하여 서브헤더가 사라지는 것을 확인하세요.",
+            moreContent: "스크롤을 활성화하는 추가 콘텐츠입니다."
+        }
+    }
+};
+
+function setLanguage(lang) {
+    document.querySelector('.subheader').innerText = translations[lang].header.subheader;
+    document.title = translations[lang].main.title;
+
+    // Update other content as necessary
+    document.getElementById('home').innerHTML = `
+        <h1>${translations[lang].main.title}</h1>
+        <p>${translations[lang].main.scrollPrompt}</p>
+        <p style="height: 2000px;">${translations[lang].main.moreContent}</p>
+    `;
+
+    // Update nav links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks[0].innerText = translations[lang].header.channel;
+    navLinks[1].innerText = translations[lang].header.events;
+    navLinks[2].innerText = translations[lang].header.players;
+    navLinks[3].innerText = translations[lang].header.tickets;
+    navLinks[4].innerText = translations[lang].header.merch;
+}
     </script>
+
 </body>
 </html>
     <meta charset="UTF-8">
