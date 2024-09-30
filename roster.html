@@ -241,8 +241,7 @@
     </div>
         <br>
             <br>
-    <!-- Placeholder for footer -->
-    <div id="footer-placeholder"></div>
+
 
     <script>
         // Load the header content from header.html
@@ -253,6 +252,11 @@
             })
             .catch(error => console.error('Error loading header:', error));
 
+    </script>
+</body>
+<body>    <!-- Placeholder for footer -->
+    <div id="footer-placeholder"></div>
+
         // Load the footer content from footer.html
         fetch('footer.html')
             .then(response => response.text())
@@ -260,6 +264,5 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => console.error('Error loading footer:', error));
-    </script>
 </body>
 </html>
