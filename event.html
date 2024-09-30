@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div id="header-placeholder"></div>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,15 @@
     <title>PWS Events Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
+     <script>
+        // Load the header content from header.html
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 <body>
     <div class="container">
         <h1>Upcoming Events</h1>
