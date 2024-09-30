@@ -1,8 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Include header -->
-    <div id="header"></div>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f1f1f1; /* Light background for contrast */
+            padding-top: 0px; /* Adjust based on the header's height */
+        }
+        header {
+            background-color: #444; /* Gray background */
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%; /* Ensure it spans the entire width */
+            height: 50px;
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+        .logo {
+            display: flex;
+            align-items: center; /* Vertically center logo and nav */
+        }
+        .logo img {
+            max-height: 60px; /* Logo height */
+        }
+        nav {
+            display: flex;
+            gap: 25px; /* Even spacing between links */
+            margin-left: 20px; /* Reduced space between logo and nav */
+            align-items: center; /* Center nav items vertically */
+        }
+        nav a {
+            color: #989797; /* Light gray text */
+            text-decoration: none;
+            font-size: 20px; /* Adjusted font size */
+            padding: 20px 15px; /* Padding for clickable area */
+            transition: color 0.3s; /* Smooth transition for hover */
+            font-family: 'Anton', sans-serif; /* Use Anton font for nav links */
+        }
+        nav a:hover {
+            color: #fff; /* Change text color on hover */
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* Reduced gap */
+        }
+        .login-button {
+            background-color: #fff; /* White button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 8px 13px;
+            color: #000; /* Black text */
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #e6e6e6; /* Light gray on hover */
+        }
+        .search-container {
+            position: relative;
+        }
+        .search-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 80px;
+            height: 30px;
+            margin-right: 50px;
+            display: block; /* Show by default */
+        }
+        .search-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            margin-right: 50px;
+            border: 2px solid #fff; /* White border */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .search-input {
+            display: none; /* Initially hidden */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-right: 50px;
+            width: 200px; /* Width of the search input */
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Stack links vertically */
+                margin-left: 0;
+            }
+            .login-button {
+                padding: 5px 10px; /* Smaller padding on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="Home">
+                <img src="Photos/pwsblank.png" alt="Logo">
+            </a>
+            <nav>
+                <a href="#">Network</a>
+                <a href="#">Events</a>
+                <a href="roster.html">Players</a> <!-- Redirect to roster.html -->
+                <a href="#">Tickets</a>
+                <a href="#">Merch</a>
+            </nav>
+        </div>
+        <div class="buttons">
+            <button class="login-button" onclick="loginFunction()">Log In</button>
+            <div class="search-container">
+                <button class="search-button" id="searchButton" aria-label="Search" onclick="toggleSearch()"></button>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        function toggleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+                searchButton.style.display = 'none'; // Hide button when search bar is open
+            } else {
+                searchInput.style.display = 'none';
+                searchButton.style.display = 'block'; // Show button when search bar is closed
+            }
+        }
+
+        function hideSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            if (searchInput.style.display === 'block') {
+                searchInput.style.display = 'none';
+                searchButton.style.display = 'block'; // Show button when search bar is closed
+            }
+        }
+
+        function loginFunction() {
+            alert('Log in button clicked');
+        }
+
+        // Ensure search input starts hidden
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('searchInput').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWS Korea</title>
@@ -11,14 +179,6 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 10px;
-            z-index: 1000;
         }
         .subheader {
             position: Hidden Header;
@@ -57,7 +217,6 @@
                 .catch(error => console.error('Error loading HTML:', error));
         }
 
-        loadHTML('header', 'header.html');
         loadHTML('subheader', 'subheader.html');
         loadHTML('home', 'home.html');
         loadHTML('footer', 'footer.html');
