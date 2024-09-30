@@ -29,7 +29,8 @@
             flex: 1 1 30%; /* Flex grow, shrink, and basis */
             margin: 10px; /* Margin for spacing */
         }
-        .event-card {
+        .event-card,
+        .news-card {
             background-color: #fff; /* White background for cards */
             border-radius: 8px; /* Rounded corners */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
@@ -85,7 +86,6 @@
 <body>
 
 <div id="header"></div>
-<div id="subheader-container"></div>
 
 <!-- Upcoming Events Section -->
 <div class="container">
@@ -110,7 +110,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">PWS</h5>
-                    <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p></p>
+                    <p class="card-text">Date: October 12, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">PWS: Next Step</h5>
-                    <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p></p>
+                    <p class="card-text">Date: October 19, 2024<br>Doors: 3PM<br>Showtime: 4PM<br>Location: <b>PWS Studio</b><br>Songtan, South Korea<Br> Mokcheon-ro, 74-25 51-7<br><BR> PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
                     <a href="#" class="btn btn-primary">Buy Tickets</a>
                 </div>
             </div>
@@ -130,24 +130,37 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-        
-        // Load the subheader
-        fetch('subheader.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('subheader-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading subheader:', error));
-    });
-</script>
-
-</body>
-</html>
+<!-- Latest News Section -->
+<div class="container">
+    <h2 class="section-title">Latest News</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="News 1">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">News Title 1</h5>
+                    <p class="card-text">Brief description of news item 1.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="News 2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">News Title 2</h5>
+                    <p class="card-text">Brief description of news item 2.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="News 3">
+                </div>
+                <
