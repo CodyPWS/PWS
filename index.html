@@ -180,16 +180,65 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        .subheader {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 50px; /* Height of the subheader */
-    background-color: #444; /* Background color */
-    transition: top 0.3s ease, opacity 0.3s ease; /* Transition for both top and opacity */
-    z-index: 999; /* Ensure it appears above other content */
-    opacity: 1; /* Fully visible by default */
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS Korea</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 2000px; /* Just for scrolling purpose */
         }
+        .subheader {
+            position: fixed; /* Keep it fixed to the top */
+            top: 0; /* Start at the top */
+            width: 100%; /* Full width */
+            height: 50px; /* Subheader height */
+            background-color: #444; /* Background color */
+            transition: top 0.3s ease, opacity 0.3s ease; /* Transition effects */
+            z-index: 999; /* Above other content */
+            opacity: 1; /* Fully visible */
+        }
+        .hidden {
+            top: -50px; /* Move out of view */
+            opacity: 0; /* Fully transparent */
+        }
+        .content {
+            padding-top: 60px; /* Prevent content from hiding behind subheader */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="subheader" id="subheader">Subheader Content</div>
+
+    <div class="content" id="home">
+        <h1>Main Content</h1>
+        <p>Scroll down to see the subheader hide.</p>
+        <p style="height: 2000px;">More content to enable scrolling.</p>
+    </div>
+
+    <script>
+        let lastScrollTop = 0;
+        const subheader = document.getElementById('subheader');
+
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (st > lastScrollTop) {
+                // Scrolling down
+                subheader.classList.add('hidden'); // Hide the subheader
+            } else {
+                // Scrolling up
+                subheader.classList.remove('hidden'); // Show the subheader
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+    </script>
+
+</body>
+</html>
 
       
         footer {
