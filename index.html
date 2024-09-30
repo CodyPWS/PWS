@@ -181,11 +181,10 @@
             font-family: Arial, sans-serif;
         }
         .subheader {
-          position: absolute; /* or absolute */
-          top: 0; /* Start at the top */
-          left: 0;
-          right: 0;
-          transition: top 0.3s ease;
+    position: relative; /* Allow it to scroll with the content */
+    top: 0; /* Start at the top */
+    transition: top 0.3s ease; /* Smooth transition */
+    z-index: 999; /* Ensure it's above other content */
         }
 
       
