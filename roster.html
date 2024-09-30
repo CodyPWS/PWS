@@ -11,99 +11,13 @@
             padding: 0;
             background-color: #f0f0f0;
         }
-
-        .container {
-            width: 90%;
-            margin: 20px auto;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .roster-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 300px;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .roster-card {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .roster-card:hover {
-            transform: scale(1.05);
-        }
-
-        .roster-card a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-decoration: none;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        .roster-card .name {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2em;
-            z-index: 2;
-        }
-
-        .roster-section-title {
-            font-size: 1.5em;
-            margin: 40px 0 20px 10px; /* Left-aligned with margin */
-            font-weight: bold;
-        }
-
-        /* New styles for Belt Holders */
-        .belt-holders {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-
-        /* Tablet layout */
-        @media(max-width: 768px) {
-            .roster-section {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Mobile layout */
-        @media(max-width: 480px) {
-            .roster-section {
-                grid-template-columns: 1fr;
-            }
-        }
+        /* Your existing styles... */
     </style>
 </head>
 <body>
-     <script>
-        // Load the header content from header.html
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
-    </script>
+    <!-- Placeholder for header -->
+    <div id="header-placeholder"></div>
+
     <div class="container">
         <h2>PWS Players</h2>
 
@@ -256,8 +170,25 @@
                 <a href="wrestler4-bio.html">
                     <div class="name">Wrestler 10</div>
                 </a>
-            </div>
-        </div>
+                <!-- Other sections... -->
+
     </div>
+
+    <script>
+        // Load the header content from header.html
+        fetch('header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 </body>
 </html>
+
+
