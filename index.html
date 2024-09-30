@@ -14,7 +14,7 @@
             top: 0;          /* Aligns it at the top of the viewport */
             left: 0;         /* Aligns it to the left */
             width: 100%;     /* Full width */
-            height: 60px;    /* Adjust based on your header height */
+            height: 60px;    /* Height of the header */
             background: lightgray; /* Background color */
             z-index: 1000;   /* Ensures it stays on top */
         }
@@ -57,7 +57,7 @@
             window.addEventListener('scroll', function() {
                 let st = window.pageYOffset || document.documentElement.scrollTop;
                 const subheader = document.getElementById('subheader-container');
-                
+
                 if (st > lastScrollTop) {
                     // Scrolling down
                     subheader.classList.add('hidden');
