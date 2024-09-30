@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <div id="header-placeholder"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wrestling Roster</title>
@@ -43,8 +44,8 @@
             background-position: center;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 150px; /* Fixed width for consistency */
-            height: 200px; /* Fixed height for consistency */
+            width: 100%; /* Fixed width for consistency */
+            height: 300px; /* Fixed height for consistency */
             position: relative;
             transition: transform 0.3s ease;
         }
@@ -120,7 +121,6 @@
             .catch(error => console.error('Error loading header:', error));
     </script>
 
-    <div id="header-placeholder"></div>
 
     <div class="container">
         <h2>PWS Players</h2>
