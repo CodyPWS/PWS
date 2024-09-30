@@ -256,7 +256,7 @@
 </body>
 <body>    <!-- Placeholder for footer -->
     <div id="footer-placeholder"></div>
-
+<script>
         // Load the footer content from footer.html
         fetch('footer.html')
             .then(response => response.text())
@@ -264,5 +264,6 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => console.error('Error loading footer:', error));
+        </script>
 </body>
 </html>
