@@ -79,7 +79,7 @@
 </div>
 
 <script>
-        let lastScrollTop = 0;
+       let lastScrollTop = 0;
 const subheader = document.getElementById('subheader');
 
 window.addEventListener('scroll', function() {
@@ -87,7 +87,7 @@ window.addEventListener('scroll', function() {
 
     if (st > lastScrollTop) {
         // Scrolling down
-        subheader.style.top = '-50px'; // Hide the subheader
+        subheader.style.top = '-50px'; // Adjust this value based on your subheader's height
     } else {
         // Scrolling up
         subheader.style.top = '0'; // Show the subheader
