@@ -81,6 +81,22 @@
                 grid-template-columns: 1fr;
             }
         }
+              #footer-placeholder {
+            margin-top: 40px; /* Adjust this value as needed */
+            padding: 20px; /* Space inside the footer */
+            background-color: #fff; /* Optional: Background color for footer */
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for footer */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+        }
+
+        .container {
+            flex: 1; /* Allow the container to grow and take available space */
+        }
     </style>
 </head>
 <body>
@@ -242,7 +258,8 @@
         <br>
             <br>
 
-
+ <!-- Placeholder for footer -->
+    <div id="footer-placeholder"></div>
     <script>
         // Load the header content from header.html
         fetch('header.html')
@@ -252,11 +269,7 @@
             })
             .catch(error => console.error('Error loading header:', error));
 
-    </script>
-</body>
-<body>    <!-- Placeholder for footer -->
-    <div id="footer-placeholder"></div>
-<script>
+
         // Load the footer content from footer.html
         fetch('footer.html')
             .then(response => response.text())
@@ -264,6 +277,5 @@
                 document.getElementById('footer-placeholder').innerHTML = data;
             })
             .catch(error => console.error('Error loading footer:', error));
-        </script>
 </body>
 </html>
