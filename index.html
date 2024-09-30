@@ -181,10 +181,14 @@
             font-family: Arial, sans-serif;
         }
         .subheader {
-    position: relative; /* Allow it to scroll with the content */
-    top: 0; /* Start at the top */
-    transition: top 0.3s ease; /* Smooth transition */
-    z-index: 999; /* Ensure it's above other content */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px; /* Height of the subheader */
+    background-color: #444; /* Background color */
+    transition: top 0.3s ease, opacity 0.3s ease; /* Transition for both top and opacity */
+    z-index: 999; /* Ensure it appears above other content */
+    opacity: 1; /* Fully visible by default */
         }
 
       
