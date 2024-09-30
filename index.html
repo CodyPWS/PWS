@@ -181,9 +181,14 @@
             font-family: Arial, sans-serif;
         }
         .subheader {
-            position: Hidden Header;
-            transition: top 0.3s ease;
+          position: fixed; /* or absolute */
+          top: 0; /* Start at the top */
+          left: 0;
+          right: 0;
+          transition: top 0.3s ease;
         }
+
+      
         footer {
             text-align: center;
             padding: 10px;
