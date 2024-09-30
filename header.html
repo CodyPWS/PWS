@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWS</title>
+    <title>Header</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f1f1f1; /* Light background for contrast */
-            padding-top: 70px; /* Adjust based on the header's height */
+            padding-top: 0px; /* Adjust based on the header's height */
         }
         header {
             background-color: #444; /* Gray background */
@@ -20,6 +20,8 @@
             align-items: center;
             justify-content: space-between;
             width: 100%; /* Ensure it spans the entire width */
+            height: 50px;
+            
             z-index: 1000; /* Ensure it appears above other content */
         }
         .logo {
@@ -49,14 +51,14 @@
         .buttons {
             display: flex;
             align-items: center;
-            gap: 15px; /* Reduced gap */
+            gap: 25px; /* Reduced gap */
         }
         .login-button {
             background-color: #fff; /* White button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            padding: 8px 15px;
+            padding: 8px 13px;
             color: #000; /* Black text */
             font-weight: bold;
             transition: background-color 0.3s;
@@ -71,17 +73,19 @@
             background: none;
             border: none;
             cursor: pointer;
-            width: 30px;
+            width: 80px;
             height: 30px;
+            margin-right: 50px;
             display: block; /* Show by default */
         }
         .search-button::before {
             content: '';
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 10%;
             width: 20px;
             height: 20px;
+            margin-right: 50px;
             border: 2px solid #fff; /* White border */
             border-radius: 50%;
             transform: translate(-50%, -50%);
@@ -92,6 +96,7 @@
             border: none;
             border-radius: 5px;
             margin-left: 10px;
+            margin-right: 50px;
             width: 200px; /* Width of the search input */
         }
         /* Responsive Styles */
