@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS | 메인 페이지</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f3f3f3; /* 연한 회색 배경 */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+        .container {
+            padding: 20px; /* 컨테이너의 전체 패딩 */
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex; /* 레이아웃을 위한 플렉스박스 사용 */
+            justify-content: space-between; /* 열 간격을 유지 */
+            flex-wrap: wrap; /* 줄바꿈 허용 */
+        }
+        .col-md-4 {
+            flex: 1 1 30%; /* 유연한 열 설정 */
+            margin: 10px; /* 간격을 위한 마진 */
+        }
+        .event-card,
+        .news-card {
+            background-color: #fff; /* 카드 배경을 흰색으로 설정 */
+            border-radius: 8px; /* 모서리 둥글게 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+            overflow: hidden; /* 둥근 모서리를 위해 오버플로우 숨김 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 부드러운 호버 효과 */
+            height: 400px; /* 균일성을 위한 고정 높이 */
+            display: flex;
+            flex-direction: column; /* 자식 요소를 세로로 정렬 */
+        }
+        .gradient-overlay {
+            position: relative;
+            flex-grow: 0; /* 크기 증가 방지 */
+            flex-shrink: 0; /* 크기 축소 방지 */
+            height: 200px; /* 이미지 영역 고정 높이 */
+        }
+        .gradient-overlay img {
+            display: block; /* 이미지 아래 공간 제거 */
+            width: 100%; /* 필요에 따라 조정 */
+            height: 100%; /* 높이 채우기 */
+            object-fit: cover; /* 비율 유지 */
+        }
+        .gradient-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1; /* 이미지를 위에 위치시킴 */
+        }
+        .card-body {
+            padding: 10px; /* 카드 본문 패딩 */
+            display: flex; /* 레이아웃을 위한 플렉스박스 사용 */
+            flex-direction: column; /* 자식 요소를 세로로 정렬 */
+            justify-content: space-between; /* 콘텐츠 간격 유지 */
+            flex-grow: 1; /* 공간을 채우도록 설정 */
+        }
+        .card-title {
+            font-size: 1.2rem; /* 제목 폰트 크기 */
+            color: #333; /* 다소 어두운 텍스트 색상 */
+            margin: 0; /* 마진 제거 */
+        }
+        .card-text {
+            flex-grow: 1; /* 크기 증가 허용 */
+            margin: 10px 0; /* 간격을 위한 마진 */
+        }
+        .btn-primary {
+            align-self: center; /* 버튼 중앙 정렬 */
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<!-- Upcoming Events Section -->
+<div class="container">
+    <h2 class="section-title">다가오는 이벤트</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/ef/ab/9b/getlstd-property-photo.jpg?w=1200&h=-1&s=1" class="card-img-top" alt="이벤트 1">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS: 드래그 슬램</h5>
+                    <p class="card-text">날짜: 2024년 10월 5일<br>입장: 오후 7시<br>쇼타임: 오후 9시<br>장소: <b>래빗홀</b><br>서울 이태원<br>신흥로 37<br><br>래빗홀, 서울시 용산구 신흥로 37 지하 1층</p>
+                    <a href="#" class="btn btn-primary">티켓 구매</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="이벤트 2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS</h5>
+                    <p class="card-text">날짜: 2024년 10월 12일<br>입장: 오후 3시<br>쇼타임: 오후 4시<br>장소: <b>PWS 스튜디오</b><br>송탄, 대한민국<br>목천로 74-25 51-7<br><br>PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
+                    <a href="#" class="btn btn-primary">티켓 구매</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card event-card">
+                <div class="gradient-overlay">
+                    <img src="https://i.namu.wiki/i/YfQDXjBlsoC7F3roIJ0GhSFPSOd6mY-lMZGfx9xiDnKMCLiDNaJsu_JegYacAEZVTkqL6e35klaRVLyG7EPDKk9fVxzwBCnrcCaWMmE7VunJLV2FBJAxbcLK2-YRFl90wBpgGfIkSKliJsV6-FjJcQ.webp" class="card-img-top" alt="이벤트 3">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">PWS: 넥스트 스텝</h5>
+                    <p class="card-text">날짜: 2024년 10월 19일<br>입장: 오후 3시<br>쇼타임: 오후 4시<br>장소: <b>PWS 스튜디오</b><br>송탄, 대한민국<br>목천로 74-25 51-7<br><br>PWS 스튜디오, 경기도 평택시 신장동 목천로 74-25 51-71층</p>
+                    <a href="#" class="btn btn-primary">티켓 구매</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Latest News Section -->
+<div class="container">
+    <h2 class="section-title">최신 뉴스</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="뉴스 1">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">뉴스 제목 1</h5>
+                    <p class="card-text">뉴스 항목 1에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="뉴스 2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">뉴스 제목 2</h5>
+                    <p class="card-text">뉴스 항목 2에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="뉴스 3">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">뉴스 제목 3</h5>
+                    <p class="card-text">뉴스 항목 3에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Merchandise Section -->
+<div class="container">
+    <h2 class="section-title">상품</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="상품 1">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">상품 아이템 1</h5>
+                    <p class="card-text">상품 아이템 1에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">지금 구매</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="상품 2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">상품 아이템 2</h5>
+                    <p class="card-text">상품 아이템 2에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">지금 구매</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card news-card">
+                <div class="gradient-overlay">
+                    <img src="https://via.placeholder.com/250" class="card-img-top" alt="상품 3">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">상품 아이템 3</h5>
+                    <p class="card-text">상품 아이템 3에 대한 간단한 설명.</p>
+                    <a href="#" class="btn btn-primary">지금 구매</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            })
+            .catch(error => console.error('헤더 로딩 오류:', error));
+    });
+</script>
+
+</body>
+</html>
