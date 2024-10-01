@@ -70,7 +70,7 @@
             color: #444; /* Gray text on hover */
         }
         .login-button img {
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 0px; /* Space between icon and text */
         }
         .language-button {
             background: none; /* No background */
@@ -91,7 +91,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            width: 30px; /* Adjust width for icon */
+            width: 80px; /* Adjust width for icon */
             height: 30px; /* Adjust height for icon */
             display: flex; /* Show by default */
             align-items: center;
@@ -126,12 +126,6 @@
                 padding: 5px 10px; /* Smaller padding on mobile */
             }
         }
-        .subheader {
-            position: relative; /* Allow it to scroll with the content */
-            top: 0; /* Start at the top */
-            transition: top 0.3s ease; /* Smooth transition */
-            z-index: 999; /* Ensure it's above other content */
-        }
         footer {
             text-align: center;
             padding: 10px;
@@ -156,7 +150,7 @@
         </div>
         <div class="buttons">
             <button class="login-button">
-                <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
+                <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16"> Login
             </button>
             <button class="language-button" onclick="setLanguage('en')">EN</button>
             /
