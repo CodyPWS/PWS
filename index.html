@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,66 +10,90 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; /* Light background for contrast */
+            padding-top: 0px; /* Adjust based on the header's height */
         }
         header {
-            background-color: #444;
-            color: #fff;
+            background-color: #444; /* Gray background */
+            color: #fff; /* White text */
             padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            width: 100%; /* Ensure it spans the entire width */
             height: 50px;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
+            z-index: 1000; /* Ensure it appears above other content */
         }
-        .highlights-banner {
+        .logo {
+            display: flex;
+            align-items: center; /* Vertically center logo and nav */
+        }
+        .logo img {
+            max-height: 60px; /* Logo height */
+        }
+        nav {
+            display: flex;
+            gap: 25px; /* Even spacing between links */
+            margin-left: 20px; /* Reduced space between logo and nav */
+            align-items: center; /* Center nav items vertically */
+        }
+        nav a {
+            color: #989797; /* Light gray text */
+            text-decoration: none;
+            font-size: 20px; /* Adjusted font size */
+            padding: 20px 15px; /* Padding for clickable area */
+            transition: color 0.3s; /* Smooth transition for hover */
+            font-family: 'Anton', sans-serif; /* Use Anton font for nav links */
+        }
+        nav a:hover {
+            color: #fff; /* Change text color on hover */
+        }
+        .buttons {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #000;
-            position: fixed;
-            top: 50px; /* Below the header */
-            width: 100%;
-            z-index: 999;
+            gap: 25px; /* Reduced gap */
         }
-        .featured-text {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-right: 40px;
-            font-family: 'Anton', sans-serif;
+        .language-button {
+            background: none; /* No background */
+            color: #fff; /* White text */
+            border: none; /* No border */
+            font-family: 'Anton', sans-serif; /* Use Anton font */
+            font-size: 16px; /* Adjust font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 0px; /* Spacing between language buttons */
         }
-        .video-links {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            gap: 25px;
+        .language-button:hover {
+            color: #e6e6e6; /* Change color on hover */
         }
-        .video-link {
-            border-radius: 8px;
-            text-decoration: none;
-            width: 250px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
+        .search-container {
+             position: relative;
+             margin-right: 80px; /* Adjust this value as needed */
         }
-        .video-link:hover {
-            transform: scale(1.05);
+        .search-input {
+            display: none; /* Initially hidden */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            width: 200px; /* Width of the search input */
         }
-        .thumbnail {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Stack links vertically */
+                margin-left: 0;
+            }
         }
-        .content {
-            margin-top: 160px; /* Space for header and highlights banner */
-            padding: 20px;
+        .subheader {
+            position: relative; /* Allow it to scroll with the content */
+            top: 0; /* Start at the top */
+            transition: top 0.3s ease; /* Smooth transition */
+            z-index: 999; /* Ensure it's above other content */
         }
         footer {
             text-align: center;
             padding: 10px;
+            position: relative;
         }
     </style>
 </head>
@@ -89,69 +114,153 @@
         </div>
         <div class="buttons">
             <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16" onclick="loginFunction()" style="cursor: pointer;">
-            <button class="language-button" onclick="setLanguage('en')">EN</button>
+            <button class="language-button" onclick="window.location.href='index.html';">EN</button>
             /
-            <button class="language-button" onclick="setLanguage('kr')">KR</button>
+            <button class="language-button" onclick="window.location.href='indexkr.html';">KR</button>
+            <div class="search-container">
+                <img id="searchIcon" src="Photos/magglassico.png" alt="Search Icon" width="20" height="20" onclick="toggleSearch()" style="cursor: pointer;">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
+            </div>
         </div>
     </header>
 
-    <div class="highlights-banner">
-        <div class="featured-text">Featured Videos:</div>
-        <div class="video-links">
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1 Thumbnail">
-            </a>
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 2 Thumbnail">
-            </a>
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 3 Thumbnail">
-            </a>
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 4 Thumbnail">
-            </a>
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5 Thumbnail">
-            </a>
-            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
-                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 6 Thumbnail">
-            </a>
-        </div>
-    </div>
-
-    <div class="content" id="home">
-        <!-- Main content can be loaded here -->
-    </div>
-
-    <footer id="footer">
-        <p>Footer content goes here.</p>
-    </footer>
+    <div class="subheader" id="subheader"></div>
+    <div class="content" id="home"></div>
+    <footer id="footer"></footer>
 
     <script>
         function loginFunction() {
+            // Your login function code here
             alert('Login button clicked!'); // Placeholder action
         }
 
+        function toggleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchIcon = document.getElementById('searchIcon');
+
+            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+                searchIcon.style.display = 'none'; // Hide icon when search bar is open
+            } else {
+                searchInput.style.display = 'none';
+                searchIcon.style.display = 'block'; // Show icon when search bar is closed
+            }
+        }
+
+        function hideSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchIcon = document.getElementById('searchIcon');
+
+            if (searchInput.style.display === 'block') {
+                searchInput.style.display = 'none';
+                searchIcon.style.display = 'block'; // Show icon when search bar is closed
+            }
+        }
+
+        // Ensure search input starts hidden
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('searchInput').style.display = 'none';
+        });
+
         const translations = {
             en: {
-                main: {
-                    title: "Main Content",
-                }
+                header: {
+                    channel: "Channel",
+                    events: "Events",
+                    players: "Players",
+                    tickets: "Tickets",
+                    merch: "Merch",
+                    subheader: "Subheader Content"
             },
             kr: {
+                header: {
+                    channel: "채널",
+                    events: "이벤트",
+                    players: "선수",
+                    tickets: "티켓",
+                    merch: "상품",
+                    subheader: "서브헤더 내용"
+                },
                 main: {
                     title: "주요 콘텐츠",
+                    scrollPrompt: "스크롤 다운하여 서브헤더가 사라지는 것을 확인하세요.",
+                    moreContent: "스크롤을 활성화하는 추가 콘텐츠입니다."
                 }
             }
         };
 
         function setLanguage(lang) {
+            document.querySelector('.subheader').innerText = translations[lang].header.subheader;
             document.title = translations[lang].main.title;
-            // Load additional content if needed
+
+            // Update other content as necessary
+            document.getElementById('home').innerHTML = `
+                <h1>${translations[lang].main.title}</h1>
+                <p>${translations[lang].main.scrollPrompt}</p>
+                <p style="height: 1000px;">${translations[lang].main.moreContent}</p>
+            `;
         }
 
         // Initialize to English by default
         setLanguage('en');
     </script>
+</body>
+</html>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS Korea</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .subheader {
+    position: relative; /* Allow it to scroll with the content */
+    top: 0; /* Start at the top */
+    transition: top 0.3s ease; /* Smooth transition */
+    z-index: 999; /* Ensure it's above other content */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+    </style>
+
+    <script>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        loadHTML('subheader', 'subheader.html');
+        loadHTML('home', 'home.html');
+        loadHTML('footer', 'footer.html');
+
+        let lastScrollTop = 0;
+        const subheader = document.getElementById('subheader');
+
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (st > lastScrollTop) {
+                // Scrolling down
+                subheader.style.top = '-50px'; // Hide the subheader
+            } else {
+                // Scrolling up
+                subheader.style.top = '50px'; // Show the subheader
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+    </script>
+
 </body>
 </html>
