@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>PWS Korea</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,43 +51,39 @@
             display: flex;
             align-items: center;
             gap: 25px; /* Reduced gap */
-       .login-button {
-    background-color: #444; /* Same as header background */
-    color: #fff; /* White text */
-    border: 2px solid #fff; /* White border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for size */
-    font-family: 'Anton', sans-serif; /* Consistent font */
-    font-size: 16px; /* Adjust font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, color 0.3s; /* Transition effects */
-    display: flex; /* Align icon and text */
-    align-items: center; /* Center vertically */
-}
-
-.login-button:hover {
-    background-color: #e6e6e6; /* Light gray on hover */
-    color: #444; /* Gray text on hover */
-}
-
-.login-button img {
-    margin-right: 8px; /* Space between icon and text */
-}
-
-.language-button {
-    background: none; /* No background */
-    color: #fff; /* White text */
-    border: none; /* No border */
-    font-family: 'YourStylizedFont', sans-serif; /* Choose your font */
-    font-size: 16px; /* Adjust font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin: 0 5px; /* Spacing between language buttons */
-}
-
-.language-button:hover {
-    color: #e6e6e6; /* Change color on hover */
-}
-
+        }
+        .login-button {
+            background-color: #444; /* Same as header background */
+            color: #fff; /* White text */
+            border: 2px solid #fff; /* White border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 8px 12px; /* Padding for size */
+            font-family: 'Anton', sans-serif; /* Consistent font */
+            font-size: 16px; /* Adjust font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s, color 0.3s; /* Transition effects */
+            display: flex; /* Align icon and text */
+            align-items: center; /* Center vertically */
+        }
+        .login-button:hover {
+            background-color: #e6e6e6; /* Light gray on hover */
+            color: #444; /* Gray text on hover */
+        }
+        .login-button img {
+            margin-right: 8px; /* Space between icon and text */
+        }
+        .language-button {
+            background: none; /* No background */
+            color: #fff; /* White text */
+            border: none; /* No border */
+            font-family: 'Anton', sans-serif; /* Use Anton font */
+            font-size: 16px; /* Adjust font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 0 5px; /* Spacing between language buttons */
+        }
+        .language-button:hover {
+            color: #e6e6e6; /* Change color on hover */
+        }
         .search-container {
             position: relative;
         }
@@ -99,7 +93,6 @@
             cursor: pointer;
             width: 80px;
             height: 30px;
-            margin-right: 50px;
             display: block; /* Show by default */
         }
         .search-button::before {
@@ -109,7 +102,6 @@
             left: 10%;
             width: 20px;
             height: 20px;
-            margin-right: 50px;
             border: 2px solid #fff; /* White border */
             border-radius: 50%;
             transform: translate(-50%, -50%);
@@ -120,7 +112,6 @@
             border: none;
             border-radius: 5px;
             margin-left: 10px;
-            margin-right: 50px;
             width: 200px; /* Width of the search input */
         }
         /* Responsive Styles */
@@ -132,6 +123,17 @@
             .login-button {
                 padding: 5px 10px; /* Smaller padding on mobile */
             }
+        }
+        .subheader {
+            position: relative; /* Allow it to scroll with the content */
+            top: 0; /* Start at the top */
+            transition: top 0.3s ease; /* Smooth transition */
+            z-index: 999; /* Ensure it's above other content */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: relative;
         }
     </style>
 </head>
@@ -150,23 +152,22 @@
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
-       <button class="login-button">
-    <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
-</button>
-
-<button class="language-button">EN</button>
-<button class="language-button">KR</button>
-
         <div class="buttons">
-            <button class="login-button" onclick="loginFunction()">Log In</button>
-           <button onclick="setLanguage('en')">EN</button>
-           <button onclick="setLanguage('kr')">KR</button>
+            <button class="login-button">
+                <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
+            </button>
+            <button class="language-button" onclick="setLanguage('en')">EN</button>
+            <button class="language-button" onclick="setLanguage('kr')">KR</button>
             <div class="search-container">
                 <button class="search-button" id="searchButton" aria-label="Search" onclick="toggleSearch()"></button>
                 <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
             </div>
         </div>
     </header>
+
+    <div class="subheader" id="subheader"></div>
+    <div class="content" id="home"></div>
+    <footer id="footer"></footer>
 
     <script>
         function toggleSearch() {
@@ -202,124 +203,45 @@
             document.getElementById('searchInput').style.display = 'none';
         });
 
-const translations = {
-    en: {
-        header: {
-            channel: "Channel",
-            events: "Events",
-            players: "Players",
-            tickets: "Tickets",
-            merch: "Merch",
-            subheader: "Subheader Content"
-        },
-        main: {
-            title: "Main Content",
-            scrollPrompt: "Scroll down to see the subheader hide.",
-            moreContent: "More content to enable scrolling."
-        }
-    },
-    kr: {
-        header: {
-            channel: "채널",
-            events: "이벤트",
-            players: "선수",
-            tickets: "티켓",
-            merch: "상품",
-            subheader: "서브헤더 내용"
-        },
-        main: {
-            title: "주요 콘텐츠",
-            scrollPrompt: "스크롤 다운하여 서브헤더가 사라지는 것을 확인하세요.",
-            moreContent: "스크롤을 활성화하는 추가 콘텐츠입니다."
-        }
-    }
-};
-
-function setLanguage(lang) {
-    document.querySelector('.subheader').innerText = translations[lang].header.subheader;
-    document.title = translations[lang].main.title;
-
-    // Update other content as necessary
-    document.getElementById('home').innerHTML = `
-        <h1>${translations[lang].main.title}</h1>
-        <p>${translations[lang].main.scrollPrompt}</p>
-        <p style="height: 2000px;">${translations[lang].main.moreContent}</p>
-    `;
-
-    // Update nav links
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks[0].innerText = translations[lang].header.channel;
-    navLinks[1].innerText = translations[lang].header.events;
-    navLinks[2].innerText = translations[lang].header.players;
-    navLinks[3].innerText = translations[lang].header.tickets;
-    navLinks[4].innerText = translations[lang].header.merch;
-}
-    </script>
-
-</body>
-</html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWS Korea</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .subheader {
-    position: relative; /* Allow it to scroll with the content */
-    top: 0; /* Start at the top */
-    transition: top 0.3s ease; /* Smooth transition */
-    z-index: 999; /* Ensure it's above other content */
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            position: relative;
-        }
-    </style>
-
-    <!-- Include subheader -->
-    <div class="subheader" id="subheader"></div>
-
-    <!-- Main content -->
-    <div class="content" id="home"></div>
-
-    <!-- Include footer -->
-    <footer id="footer"></footer>
-
-    <script>
-        function loadHTML(elementId, fileName) {
-            fetch(fileName)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading HTML:', error));
-        }
-
-        loadHTML('subheader', 'subheader.html');
-        loadHTML('home', 'home.html');
-        loadHTML('footer', 'footer.html');
-
-        let lastScrollTop = 0;
-        const subheader = document.getElementById('subheader');
-
-        window.addEventListener('scroll', function() {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (st > lastScrollTop) {
-                // Scrolling down
-                subheader.style.top = '-50px'; // Hide the subheader
-            } else {
-                // Scrolling up
-                subheader.style.top = '50px'; // Show the subheader
+        const translations = {
+            en: {
+                header: {
+                    channel: "Channel",
+                    events: "Events",
+                    players: "Players",
+                    tickets: "Tickets",
+                    merch: "Merch",
+                    subheader: "Subheader Content"
+                },
+                main: {
+                    title: "Main Content",
+                    scrollPrompt: "Scroll down to see the subheader hide.",
+                    moreContent: "More content to enable scrolling."
+                }
+            },
+            kr: {
+                header: {
+                    channel: "채널",
+                    events: "이벤트",
+                    players: "선수",
+                    tickets: "티켓",
+                    merch: "상품",
+                    subheader: "서브헤더 내용"
+                },
+                main: {
+                    title: "주요 콘텐츠",
+                    scrollPrompt: "스크롤 다운하여 서브헤더가 사라지는 것을 확인하세요.",
+                    moreContent: "스크롤을 활성화하는 추가 콘텐츠입니다."
+                }
             }
-            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        });
-    </script>
+        };
 
-</body>
-</html>
+        function setLanguage(lang) {
+            document.querySelector('.subheader').innerText = translations[lang].header.subheader;
+            document.title = translations[lang].main.title;
+
+            // Update other content as necessary
+            document.getElementById('home').innerHTML = `
+                <h1>${translations[lang].main.title}</h1>
+                <p>${translations[lang].main.scrollPrompt}</p>
+                <p style
