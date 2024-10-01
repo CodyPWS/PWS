@@ -52,26 +52,6 @@
             align-items: center;
             gap: 25px; /* Reduced gap */
         }
-        .login-button {
-            background-color: #444; /* Same as header background */
-            color: #fff; /* White text */
-            border: 2px solid #fff; /* White border */
-            border-radius: 5px; /* Rounded corners */
-            padding: 8px 12px; /* Padding for size */
-            font-family: 'Anton', sans-serif; /* Consistent font */
-            font-size: 16px; /* Adjust font size */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background-color 0.3s, color 0.3s; /* Transition effects */
-            display: flex; /* Align icon and text */
-            align-items: center; /* Center vertically */
-        }
-        .login-button:hover {
-            background-color: #e6e6e6; /* Light gray on hover */
-            color: #444; /* Gray text on hover */
-        }
-        .login-button img {
-            margin-right: 8px; /* Space between icon and text */
-        }
         .language-button {
             background: none; /* No background */
             color: #fff; /* White text */
@@ -79,34 +59,14 @@
             font-family: 'Anton', sans-serif; /* Use Anton font */
             font-size: 16px; /* Adjust font size */
             cursor: pointer; /* Pointer cursor on hover */
-            margin: 0 2px; /* Spacing between language buttons */
+            margin: 0px; /* Spacing between language buttons */
         }
         .language-button:hover {
             color: #e6e6e6; /* Change color on hover */
         }
         .search-container {
-            position: relative;
-        }
-        .search-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 30px; /* Adjust width for icon */
-            height: 30px; /* Adjust height for icon */
-            display: flex; /* Show by default */
-            align-items: center;
-            justify-content: center;
-        }
-        .search-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #fff; /* White border */
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
+             position: relative;
+             margin-right: 80px; /* Adjust this value as needed */
         }
         .search-input {
             display: none; /* Initially hidden */
@@ -121,9 +81,6 @@
             nav {
                 flex-direction: column; /* Stack links vertically */
                 margin-left: 0;
-            }
-            .login-button {
-                padding: 5px 10px; /* Smaller padding on mobile */
             }
         }
         .subheader {
@@ -155,14 +112,12 @@
             </nav>
         </div>
         <div class="buttons">
-            <button class="login-button">
-                <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
-            </button>
+            <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16" onclick="loginFunction()" style="cursor: pointer;">
             <button class="language-button" onclick="setLanguage('en')">EN</button>
             /
             <button class="language-button" onclick="setLanguage('kr')">KR</button>
             <div class="search-container">
-                <button class="search-button" id="searchButton" aria-label="Search" onclick="toggleSearch()"></button>
+                <img id="searchIcon" src="Photos/magglassico.png" alt="Search Icon" width="20" height="20" onclick="toggleSearch()" style="cursor: pointer;">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
             </div>
         </div>
@@ -173,27 +128,32 @@
     <footer id="footer"></footer>
 
     <script>
+        function loginFunction() {
+            // Your login function code here
+            alert('Login button clicked!'); // Placeholder action
+        }
+
         function toggleSearch() {
             const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+            const searchIcon = document.getElementById('searchIcon');
 
             if (searchInput.style.display === 'none' || searchInput.style.display === '') {
                 searchInput.style.display = 'block';
                 searchInput.focus();
-                searchButton.style.display = 'none'; // Hide button when search bar is open
+                searchIcon.style.display = 'none'; // Hide icon when search bar is open
             } else {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'flex'; // Show button when search bar is closed
+                searchIcon.style.display = 'block'; // Show icon when search bar is closed
             }
         }
 
         function hideSearch() {
             const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+            const searchIcon = document.getElementById('searchIcon');
 
             if (searchInput.style.display === 'block') {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'flex'; // Show button when search bar is closed
+                searchIcon.style.display = 'block'; // Show icon when search bar is closed
             }
         }
 
