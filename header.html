@@ -113,9 +113,9 @@
         </div>
         <div class="buttons">
             <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16" onclick="loginFunction()" style="cursor: pointer;">
-            <button class="language-button" onclick="setLanguage('en')">EN</button>
+            <button class="language-button" onclick="window.location.href='index.html';">EN</button>
             /
-            <button class="language-button" onclick="setLanguage('kr')">KR</button>
+            <button class="language-button" onclick="window.location.href='indexkr.html';">KR</button>
             <div class="search-container">
                 <img id="searchIcon" src="Photos/magglassico.png" alt="Search Icon" width="20" height="20" onclick="toggleSearch()" style="cursor: pointer;">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
@@ -171,12 +171,6 @@
                     tickets: "Tickets",
                     merch: "Merch",
                     subheader: "Subheader Content"
-                },
-                main: {
-                    title: "Main Content",
-                    scrollPrompt: "Scroll down to see the subheader hide.",
-                    moreContent: "More content to enable scrolling."
-                }
             },
             kr: {
                 header: {
