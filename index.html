@@ -9,228 +9,32 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f1f1f1; /* Light background for contrast */
-            padding-top: 0px; /* Adjust based on the header's height */
+            background-color: #f1f1f1;
         }
-        header {
-            background-color: #444; /* Gray background */
-            color: #fff; /* White text */
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%; /* Ensure it spans the entire width */
-            height: 50px;
-            z-index: 1000; /* Ensure it appears above other content */
+        #header, #subheader, #home, #footer {
+            width: 100%;
+            transition: opacity 0.5s ease; /* Smooth transition for fade effects */
         }
-        .logo {
-            display: flex;
-            align-items: center; /* Vertically center logo and nav */
+        #subheader {
+            position: relative; /* Adjust positioning */
         }
-        .logo img {
-            max-height: 60px; /* Logo height */
+        .hidden {
+            opacity: 0; /* Fully transparent */
+            pointer-events: none; /* Prevent interaction */
         }
-        nav {
-            display: flex;
-            gap: 25px; /* Even spacing between links */
-            margin-left: 20px; /* Reduced space between logo and nav */
-            align-items: center; /* Center nav items vertically */
-        }
-        nav a {
-            color: #989797; /* Light gray text */
-            text-decoration: none;
-            font-size: 20px; /* Adjusted font size */
-            padding: 20px 15px; /* Padding for clickable area */
-            transition: color 0.3s; /* Smooth transition for hover */
-            font-family: 'Anton', sans-serif; /* Use Anton font for nav links */
-        }
-        nav a:hover {
-            color: #fff; /* Change text color on hover */
-        }
-        .buttons {
-            display: flex;
-            align-items: center;
-            gap: 25px; /* Reduced gap */
-        }
-        .language-button {
-            background: none; /* No background */
-            color: #fff; /* White text */
-            border: none; /* No border */
-            font-family: 'Anton', sans-serif; /* Use Anton font */
-            font-size: 16px; /* Adjust font size */
-            cursor: pointer; /* Pointer cursor on hover */
-            margin: 0px; /* Spacing between language buttons */
-        }
-        .language-button:hover {
-            color: #e6e6e6; /* Change color on hover */
-        }
-        .search-container {
-             position: relative;
-             margin-right: 80px; /* Adjust this value as needed */
-        }
-        .search-input {
-            display: none; /* Initially hidden */
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-left: 10px;
-            width: 200px; /* Width of the search input */
-        }
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column; /* Stack links vertically */
-                margin-left: 0;
-            }
-        }
-        .subheader {
-            position: relative; /* Allow it to scroll with the content */
-            top: 0; /* Start at the top */
-            transition: top 0.3s ease; /* Smooth transition */
-            z-index: 999; /* Ensure it's above other content */
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            position: relative;
+        .visible {
+            opacity: 1; /* Fully visible */
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html" aria-label="Home">
-                <img src="Photos/pwsblank.png" alt="Logo">
-            </a>
-            <nav>
-                <a href="https://www.youtube.com/@ProWrestlingSociety">Channel</a>
-                <a href="event.html">Events</a>
-                <a href="roster.html">Players</a>
-                <a href="tickets.html">Tickets</a>
-                <a href="merch.html">Merch</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-        <div class="buttons">
-            <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16" onclick="loginFunction()" style="cursor: pointer;">
-            <button class="language-button" onclick="window.location.href='index.html';">EN</button>
-            /
-            <button class="language-button" onclick="window.location.href='indexkr.html';">KR</button>
-            <div class="search-container">
-                <img id="searchIcon" src="Photos/magglassico.png" alt="Search Icon" width="20" height="20" onclick="toggleSearch()" style="cursor: pointer;">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search..." onblur="hideSearch()" aria-label="Search input">
-            </div>
-        </div>
-    </header>
-
-    <div class="subheader" id="subheader"></div>
-    <div class="content" id="home"></div>
-    <footer id="footer"></footer>
+    <div id="header"></div>
+    <div id="subheader" class="hidden"></div>
+    <div id="home"></div>
+    <div id="footer"></div>
 
     <script>
-        function loginFunction() {
-            // Your login function code here
-            alert('Login button clicked!'); // Placeholder action
-        }
-
-        function toggleSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchIcon = document.getElementById('searchIcon');
-
-            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
-                searchInput.style.display = 'block';
-                searchInput.focus();
-                searchIcon.style.display = 'none'; // Hide icon when search bar is open
-            } else {
-                searchInput.style.display = 'none';
-                searchIcon.style.display = 'block'; // Show icon when search bar is closed
-            }
-        }
-
-        function hideSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchIcon = document.getElementById('searchIcon');
-
-            if (searchInput.style.display === 'block') {
-                searchInput.style.display = 'none';
-                searchIcon.style.display = 'block'; // Show icon when search bar is closed
-            }
-        }
-
-        // Ensure search input starts hidden
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('searchInput').style.display = 'none';
-        });
-
-        const translations = {
-            en: {
-                header: {
-                    channel: "Channel",
-                    events: "Events",
-                    players: "Players",
-                    tickets: "Tickets",
-                    merch: "Merch",
-                    subheader: "Subheader Content"
-            },
-            kr: {
-                header: {
-                    channel: "채널",
-                    events: "이벤트",
-                    players: "선수",
-                    tickets: "티켓",
-                    merch: "상품",
-                    subheader: "서브헤더 내용"
-                },
-                main: {
-                    title: "주요 콘텐츠",
-                    scrollPrompt: "스크롤 다운하여 서브헤더가 사라지는 것을 확인하세요.",
-                    moreContent: "스크롤을 활성화하는 추가 콘텐츠입니다."
-                }
-            }
-        };
-
-        function setLanguage(lang) {
-            document.querySelector('.subheader').innerText = translations[lang].header.subheader;
-            document.title = translations[lang].main.title;
-
-            // Update other content as necessary
-            document.getElementById('home').innerHTML = `
-                <h1>${translations[lang].main.title}</h1>
-                <p>${translations[lang].main.scrollPrompt}</p>
-                <p style="height: 1000px;">${translations[lang].main.moreContent}</p>
-            `;
-        }
-
-        // Initialize to English by default
-        setLanguage('en');
-    </script>
-</body>
-</html>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWS Korea</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .subheader {
-    position: relative; /* Allow it to scroll with the content */
-    top: 0; /* Start at the top */
-    transition: top 0.3s ease; /* Smooth transition */
-    z-index: 999; /* Ensure it's above other content */
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            position: relative;
-        }
-    </style>
-
-    <script>
+        // Load HTML content into sections
         function loadHTML(elementId, fileName) {
             fetch(fileName)
                 .then(response => response.text())
@@ -240,26 +44,37 @@
                 .catch(error => console.error('Error loading HTML:', error));
         }
 
+        loadHTML('header', 'header.html');
         loadHTML('subheader', 'subheader.html');
         loadHTML('home', 'home.html');
         loadHTML('footer', 'footer.html');
 
-        let lastScrollTop = 0;
+        // Fade in and fade out effect for subheader
         const subheader = document.getElementById('subheader');
+        let lastScrollTop = 0;
 
         window.addEventListener('scroll', function() {
             let st = window.pageYOffset || document.documentElement.scrollTop;
 
             if (st > lastScrollTop) {
                 // Scrolling down
-                subheader.style.top = '-50px'; // Hide the subheader
+                subheader.classList.remove('visible');
+                subheader.classList.add('hidden');
             } else {
                 // Scrolling up
-                subheader.style.top = '50px'; // Show the subheader
+                subheader.classList.remove('hidden');
+                subheader.classList.add('visible');
             }
-            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+            lastScrollTop = st <= 0 ? 0 : st; // For mobile or negative scrolling
+        });
+
+        // Initial fade-in for subheader after load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                subheader.classList.remove('hidden');
+                subheader.classList.add('visible');
+            }, 100); // Small delay to ensure the effect is visible
         });
     </script>
-
 </body>
 </html>
