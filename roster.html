@@ -79,8 +79,6 @@
             transition: transform 0.3s ease;
             width: 90%; /* Set a fixed width */
             height: 90%; /* Set a fixed height */
-            background-size: cover; /* Cover the entire card while maintaining aspect ratio */
-            background-position: top; /* Center the image */
             background-repeat: no-repeat; /* Prevent the image from repeating */
             display: flex; /* To center text */
             align-items: flex-end; /* Align text to the bottom */
@@ -88,8 +86,10 @@
             color: black; /* Text color */
         }
 
-        .roster-card:hover {
+       .roster-card:hover {
             transform: scale(1.05);
+            margin-top: -20px; /* Move the card up */
+            z-index: 1; /* Bring it above the other cards */
         }
 
         .roster-card a {
