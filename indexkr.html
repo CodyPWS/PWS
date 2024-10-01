@@ -171,7 +171,7 @@
                     tickets: "Tickets",
                     merch: "Merch",
                     subheader: "Subheader Content"
-                },
+            },
             kr: {
                 header: {
                     channel: "채널",
@@ -240,9 +240,9 @@
                 .catch(error => console.error('Error loading HTML:', error));
         }
 
-        loadHTML('subheader', 'subheaderkr.html');
-        loadHTML('home', 'homekr.html');
-        loadHTML('footer', 'footerkr.html');
+        loadHTML('subheader', 'subheader.html');
+        loadHTML('home', 'home.html');
+        loadHTML('footer', 'footer.html');
 
         let lastScrollTop = 0;
         const subheader = document.getElementById('subheader');
