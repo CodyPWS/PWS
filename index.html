@@ -11,70 +11,147 @@
             margin: 0;
             background-color: #f1f1f1;
         }
-        #header, #subheader, #home, #footer {
+        header {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             width: 100%;
-            transition: opacity 0.5s ease; /* Smooth transition for fade effects */
+            height: 50px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
         }
-        #subheader {
-            position: relative; /* Adjust positioning */
+        .highlights-banner {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #000;
+            position: fixed;
+            top: 50px; /* Below the header */
+            width: 100%;
+            z-index: 999;
         }
-        .hidden {
-            opacity: 0; /* Fully transparent */
-            pointer-events: none; /* Prevent interaction */
+        .featured-text {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-right: 40px;
+            font-family: 'Anton', sans-serif;
         }
-        .visible {
-            opacity: 1; /* Fully visible */
+        .video-links {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 25px;
+        }
+        .video-link {
+            border-radius: 8px;
+            text-decoration: none;
+            width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .video-link:hover {
+            transform: scale(1.05);
+        }
+        .thumbnail {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+        .content {
+            margin-top: 160px; /* Space for header and highlights banner */
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="header"></div>
-    <div id="subheader" class="hidden"></div>
-    <div id="home"></div>
-    <div id="footer"></div>
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="Home">
+                <img src="Photos/pwsblank.png" alt="Logo">
+            </a>
+            <nav>
+                <a href="https://www.youtube.com/@ProWrestlingSociety">Channel</a>
+                <a href="event.html">Events</a>
+                <a href="roster.html">Players</a>
+                <a href="tickets.html">Tickets</a>
+                <a href="merch.html">Merch</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="buttons">
+            <img src="Photos/loginico.png" alt="Login Icon" width="16" height="16" onclick="loginFunction()" style="cursor: pointer;">
+            <button class="language-button" onclick="setLanguage('en')">EN</button>
+            /
+            <button class="language-button" onclick="setLanguage('kr')">KR</button>
+        </div>
+    </header>
+
+    <div class="highlights-banner">
+        <div class="featured-text">Featured Videos:</div>
+        <div class="video-links">
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 1 Thumbnail">
+            </a>
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 2 Thumbnail">
+            </a>
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 3 Thumbnail">
+            </a>
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 4 Thumbnail">
+            </a>
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 5 Thumbnail">
+            </a>
+            <a class="video-link" href="https://www.youtube.com/watch?v=z-d7q9fVH8c" target="_blank">
+                <img class="thumbnail" src="https://img.youtube.com/vi/z-d7q9fVH8c/maxresdefault.jpg" alt="Highlight 6 Thumbnail">
+            </a>
+        </div>
+    </div>
+
+    <div class="content" id="home">
+        <!-- Main content can be loaded here -->
+    </div>
+
+    <footer id="footer">
+        <p>Footer content goes here.</p>
+    </footer>
 
     <script>
-        // Load HTML content into sections
-        function loadHTML(elementId, fileName) {
-            fetch(fileName)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading HTML:', error));
+        function loginFunction() {
+            alert('Login button clicked!'); // Placeholder action
         }
 
-        loadHTML('header', 'header.html');
-        loadHTML('subheader', 'subheader.html');
-        loadHTML('home', 'home.html');
-        loadHTML('footer', 'footer.html');
-
-        // Fade in and fade out effect for subheader
-        const subheader = document.getElementById('subheader');
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', function() {
-            let st = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (st > lastScrollTop) {
-                // Scrolling down
-                subheader.classList.remove('visible');
-                subheader.classList.add('hidden');
-            } else {
-                // Scrolling up
-                subheader.classList.remove('hidden');
-                subheader.classList.add('visible');
+        const translations = {
+            en: {
+                main: {
+                    title: "Main Content",
+                }
+            },
+            kr: {
+                main: {
+                    title: "주요 콘텐츠",
+                }
             }
-            lastScrollTop = st <= 0 ? 0 : st; // For mobile or negative scrolling
-        });
+        };
 
-        // Initial fade-in for subheader after load
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                subheader.classList.remove('hidden');
-                subheader.classList.add('visible');
-            }, 100); // Small delay to ensure the effect is visible
-        });
+        function setLanguage(lang) {
+            document.title = translations[lang].main.title;
+            // Load additional content if needed
+        }
+
+        // Initialize to English by default
+        setLanguage('en');
     </script>
 </body>
 </html>
