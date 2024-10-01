@@ -79,7 +79,7 @@
             font-family: 'Anton', sans-serif; /* Use Anton font */
             font-size: 16px; /* Adjust font size */
             cursor: pointer; /* Pointer cursor on hover */
-            margin: 0 5px; /* Spacing between language buttons */
+            margin: 0 2px; /* Spacing between language buttons */
         }
         .language-button:hover {
             color: #e6e6e6; /* Change color on hover */
@@ -91,9 +91,11 @@
             background: none;
             border: none;
             cursor: pointer;
-            width: 80px;
-            height: 30px;
-            display: block; /* Show by default */
+            width: 30px; /* Adjust width for icon */
+            height: 30px; /* Adjust height for icon */
+            display: flex; /* Show by default */
+            align-items: center;
+            justify-content: center;
         }
         .search-button::before {
             content: '';
@@ -157,6 +159,7 @@
                 <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
             </button>
             <button class="language-button" onclick="setLanguage('en')">EN</button>
+            /
             <button class="language-button" onclick="setLanguage('kr')">KR</button>
             <div class="search-container">
                 <button class="search-button" id="searchButton" aria-label="Search" onclick="toggleSearch()"></button>
@@ -180,7 +183,7 @@
                 searchButton.style.display = 'none'; // Hide button when search bar is open
             } else {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show button when search bar is closed
+                searchButton.style.display = 'flex'; // Show button when search bar is closed
             }
         }
 
@@ -190,12 +193,8 @@
 
             if (searchInput.style.display === 'block') {
                 searchInput.style.display = 'none';
-                searchButton.style.display = 'block'; // Show button when search bar is closed
+                searchButton.style.display = 'flex'; // Show button when search bar is closed
             }
-        }
-
-        function loginFunction() {
-            alert('Log in button clicked');
         }
 
         // Ensure search input starts hidden
@@ -244,4 +243,77 @@
             document.getElementById('home').innerHTML = `
                 <h1>${translations[lang].main.title}</h1>
                 <p>${translations[lang].main.scrollPrompt}</p>
-                <p style
+                <p style="height: 1000px;">${translations[lang].main.moreContent}</p>
+            `;
+        }
+
+        // Initialize to English by default
+        setLanguage('en');
+    </script>
+</body>
+</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWS Korea</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .subheader {
+    position: relative; /* Allow it to scroll with the content */
+    top: 0; /* Start at the top */
+    transition: top 0.3s ease; /* Smooth transition */
+    z-index: 999; /* Ensure it's above other content */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+    </style>
+
+    <!-- Include subheader -->
+    <div class="subheader" id="subheader"></div>
+
+    <!-- Main content -->
+    <div class="content" id="home"></div>
+
+    <!-- Include footer -->
+    <footer id="footer"></footer>
+
+    <script>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        loadHTML('subheader', 'subheader.html');
+        loadHTML('home', 'home.html');
+        loadHTML('footer', 'footer.html');
+
+        let lastScrollTop = 0;
+        const subheader = document.getElementById('subheader');
+
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (st > lastScrollTop) {
+                // Scrolling down
+                subheader.style.top = '-50px'; // Hide the subheader
+            } else {
+                // Scrolling up
+                subheader.style.top = '50px'; // Show the subheader
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+    </script>
+
+</body>
+</html>
