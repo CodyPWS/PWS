@@ -53,8 +53,7 @@
             display: flex;
             align-items: center;
             gap: 25px; /* Reduced gap */
-        }
-        .login-button {
+       .login-button {
     background-color: #444; /* Same as header background */
     color: #fff; /* White text */
     border: 2px solid #fff; /* White border */
@@ -64,34 +63,33 @@
     font-size: 16px; /* Adjust font size */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s, color 0.3s; /* Transition effects */
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center vertically */
 }
 
 .login-button:hover {
-    background-color: #fff; /* White background on hover */
+    background-color: #e6e6e6; /* Light gray on hover */
     color: #444; /* Gray text on hover */
+}
+
+.login-button img {
+    margin-right: 8px; /* Space between icon and text */
 }
 
 .language-button {
-    background-color: #444; /* Same as header background */
+    background: none; /* No background */
     color: #fff; /* White text */
-    border: 2px solid #fff; /* White border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for size */
-    font-family: 'Anton', sans-serif; /* Consistent font */
+    border: none; /* No border */
+    font-family: 'YourStylizedFont', sans-serif; /* Choose your font */
     font-size: 16px; /* Adjust font size */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+    margin: 0 5px; /* Spacing between language buttons */
 }
 
 .language-button:hover {
-    background-color: #fff; /* White background on hover */
-    color: #444; /* Gray text on hover */
+    color: #e6e6e6; /* Change color on hover */
 }
 
-        }
-        .login-button:hover {
-            background-color: #e6e6e6; /* Light gray on hover */
-        }
         .search-container {
             position: relative;
         }
@@ -152,6 +150,13 @@
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
+       <button class="login-button">
+    <img src="loginico.png" alt="Login Icon" width="16" height="16"> Login
+</button>
+
+<button class="language-button">EN</button>
+<button class="language-button">KR</button>
+
         <div class="buttons">
             <button class="login-button" onclick="loginFunction()">Log In</button>
            <button onclick="setLanguage('en')">EN</button>
