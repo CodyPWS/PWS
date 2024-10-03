@@ -41,22 +41,25 @@
             position: relative;
             width: 30%; /* Width for 3 cards in a row */
             margin-bottom: 20px;
-            overflow: hidden; /* Hide overflow to clip the image */
+            overflow: hidden; /* Allow overflow of the image to be clipped */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             color: gold; /* Text color for Belt Holders */
+            height: 200px; /* Reduced height for card */
         }
 
         .belt-holders .roster-card img {
-            width: 100%; /* Fit image within card */
-            height: auto; /* Maintain aspect ratio */
+            width: 120%; /* Extend the image beyond its card */
+            height: auto;
+            margin-left: -10%; /* Adjust to center the image */
             transition: transform 0.3s ease; /* Smooth transition */
-            position: relative; /* For positioning on hover */
-            bottom: 0; /* Align bottom */
+            position: relative; /* Set positioning for the image */
+            bottom: -10px; /* Shift image down for clipping effect */
         }
 
         .belt-holders .roster-card:hover img {
-            transform: translateY(-20%) scale(1.1); /* Scale image up and move up on hover */
+            transform: scale(1.1); /* Scale image on hover */
+            bottom: 0; /* Reset position on hover */
         }
 
         .belt-holders .roster-card .name,
@@ -90,21 +93,24 @@
         .roster-card {
             position: relative;
             border-radius: 10px;
-            overflow: hidden; /* Hide overflow to clip the image */
+            overflow: hidden; /* Allow overflow of the image to be clipped */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            height: 200px; /* Reduced height for card */
         }
 
         .roster-card img {
-            width: 100%; /* Fit image within card */
-            height: auto; /* Maintain aspect ratio */
+            width: 120%; /* Extend the image beyond its card */
+            height: auto;
+            margin-left: -10%; /* Adjust to center the image */
             transition: transform 0.3s ease; /* Smooth transition */
-            position: relative; /* For positioning on hover */
-            bottom: 0; /* Align bottom */
+            position: relative; /* Set positioning for the image */
+            bottom: -10px; /* Shift image down for clipping effect */
         }
 
         .roster-card:hover img {
-            transform: translateY(-20%) scale(1.1); /* Scale image up and move up on hover */
+            transform: scale(1.1); /* Scale image on hover */
+            bottom: 0; /* Reset position on hover */
         }
 
         .roster-card .name {
@@ -239,12 +245,6 @@
                     <div class="name">Wrestler 5</div>
                 </a>
             </div>
-            <div class="roster-card">
-                <a href="wrestler6-bio.html">
-                    <img src="Photos/defaultprofileico.png" alt="Wrestler 6">
-                    <div class="name">Wrestler 6</div>
-                </a>
-            </div>
         </div>
 
         <!-- PWS: Next Step Section -->
@@ -360,5 +360,6 @@
             })
             .catch(error => console.error('Error loading footer:', error));
     </script>
+    
 </body>
 </html>
