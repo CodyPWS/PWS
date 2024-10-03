@@ -40,28 +40,24 @@
         .belt-holders .roster-card {
             position: relative;
             width: 30%; /* Width for 3 cards in a row */
-            margin-bottom: -40px; /* Negative margin to create overlap */
+            margin-bottom: 40px; /* Space between cards */
             overflow: hidden; /* Allow overflow of the image to be clipped */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             color: gold; /* Text color for Belt Holders */
             height: 200px; /* Reduced height for card */
-            z-index: 1; /* Default z-index */
         }
 
         .belt-holders .roster-card img {
-            width: 120%; /* Extend the image beyond its card */
+            width: 100%; /* Full width of the card */
             height: auto;
-            margin-left: -10%; /* Adjust to center the image */
-            transition: transform 0.3s ease; /* Smooth transition */
             position: relative; /* Set positioning for the image */
-            top: -20px; /* Move the image up for overlap */
-            z-index: 0; /* Ensure image is below text */
+            top: -20px; /* Move the image up to create overflow effect */
+            transition: transform 0.3s ease; /* Smooth transition */
         }
 
         .belt-holders .roster-card:hover img {
-            transform: scale(1.1); /* Scale image on hover */
-            top: -10px; /* Reset position on hover */
+            transform: scale(1.05); /* Scale image on hover */
         }
 
         .belt-holders .roster-card .name,
@@ -70,8 +66,8 @@
             left: 10px;
             color: gold;
             font-weight: bold;
-            z-index: 2; /* Ensure text is above the image */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
+            z-index: 1; /* Ensure text is above the image */
         }
 
         .belt-holders .roster-card .name {
@@ -99,22 +95,18 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             height: 200px; /* Reduced height for card */
-            z-index: 1; /* Default z-index */
         }
 
         .roster-card img {
-            width: 120%; /* Extend the image beyond its card */
+            width: 100%; /* Full width of the card */
             height: auto;
-            margin-left: -10%; /* Adjust to center the image */
-            transition: transform 0.3s ease; /* Smooth transition */
             position: relative; /* Set positioning for the image */
-            top: -20px; /* Move the image up for overlap */
-            z-index: 0; /* Ensure image is below text */
+            top: -20px; /* Move the image up to create overflow effect */
+            transition: transform 0.3s ease; /* Smooth transition */
         }
 
         .roster-card:hover img {
-            transform: scale(1.1); /* Scale image on hover */
-            top: -10px; /* Reset position on hover */
+            transform: scale(1.05); /* Scale image on hover */
         }
 
         .roster-card .name {
@@ -123,7 +115,7 @@
             left: 10px;
             font-weight: bold;
             font-size: 1.2em;
-            z-index: 2;
+            z-index: 1;
             color: white; /* Default text color */
         }
 
