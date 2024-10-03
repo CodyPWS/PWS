@@ -39,7 +39,7 @@
 
         .belt-holders .roster-card {
             position: relative;
-            width: 30%; /* Width for 3 cards in a row */
+            width: 19.5%; /* Width reduced to 19.5% */
             margin-bottom: 20px;
             overflow: visible; /* Allow overflow of the image */
             border-radius: 10px;
@@ -51,6 +51,8 @@
             width: 120%; /* Extend the image beyond its card */
             height: auto;
             margin-left: -10%; /* Adjust to center the image */
+            margin-top: -20%; /* Move the image upwards */
+            position: relative; /* Allow upward movement */
             transition: transform 0.3s ease; /* Smooth transition */
         }
 
@@ -58,24 +60,15 @@
             transform: scale(1.1); /* Scale image on hover */
         }
 
-        .belt-holders .roster-card .name,
-        .belt-holders .roster-card .title {
+        .belt-holders .roster-card .name {
             position: absolute;
+            bottom: 10px;
             left: 10px;
             color: gold;
             font-weight: bold;
+            font-size: 1.2em;
             z-index: 2;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
-        }
-
-        .belt-holders .roster-card .name {
-            bottom: 40px; /* Position for the name */
-            font-size: 1.2em;
-        }
-
-        .belt-holders .roster-card .title {
-            bottom: 10px; /* Position for the title */
-            font-size: 1em;
         }
 
         /* General Styles for Roster Sections */
@@ -88,6 +81,7 @@
 
         .roster-card {
             position: relative;
+            width: 19.5%; /* Adjust this as needed */
             border-radius: 10px;
             overflow: visible; /* Allow overflow of the image */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -98,6 +92,8 @@
             width: 120%; /* Extend the image beyond its card */
             height: auto;
             margin-left: -10%; /* Adjust to center the image */
+            margin-top: -20%; /* Move the image upwards */
+            position: relative; /* Allow upward movement */
             transition: transform 0.3s ease; /* Smooth transition */
         }
 
@@ -112,16 +108,17 @@
             font-weight: bold;
             font-size: 1.2em;
             z-index: 2;
-            color: white; /* Default text color */
         }
 
         /* Specific styles for PWS Section */
         .pws .roster-card .name {
+            color: white;
             text-shadow: 0 0 5px red; /* Red border effect */
         }
 
         /* Specific styles for PWS: Next Step Section */
         .pws-next .roster-card .name {
+            color: white;
             text-shadow: 0 0 5px blue; /* Blue border effect */
         }
 
@@ -129,6 +126,7 @@
         .managers .roster-card .name,
         .referees .roster-card .name,
         .announcers .roster-card .name {
+            color: white;
             text-shadow: 0 0 5px black; /* Black border effect */
         }
 
@@ -332,9 +330,10 @@
                     <div class="title">Ring Announcer</div>
                 </a>
             </div>
-            <div class="roster-card">
-                <a href="announcer4-bio.html">
-                    <img src="Photos/june.png" alt="Announcer 4">
+        </div>
+        <div class="roster-card">
+                <a href="announcer3-bio.html">
+                    <img src="Photos/june.png" alt="Announcer 3">
                     <div class="name">June</div>
                     <div class="title">Ring Announcer</div>
                 </a>
