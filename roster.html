@@ -37,25 +37,32 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .belt-holders .roster-card {
+       .belt-holders .roster-card {
     position: relative;
     width: 30%; /* Width for 3 cards in a row */
     margin-bottom: 40px; /* Space between cards */
-    overflow: visible; /* Allow overflow of the image at the top */
+    overflow: hidden; /* Hide overflow for the bottom */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: gold; /* Text color for Belt Holders */
-    height: 300px; /* Set a fixed height for the card */
+    height: 500px; /* Set a fixed height for the card */
+}
+
+.belt-holders .roster-card .image-wrapper {
+    position: absolute;
+    top: 0; /* Align at the top */
+    left: 0;
+    right: 0;
+    height: 100%; /* Match height of the card */
+    overflow: visible; /* Allow top overflow */
 }
 
 .belt-holders .roster-card img {
-    width: 100%; /* Full width of the card */
+    width: 100%; /* Full width of the wrapper */
     height: auto; /* Maintain aspect ratio */
-    position: relative; /* Set positioning for the image */
-    top: -20px; /* Move the image up to create the overflow effect */
-    transition: transform 0.3s ease; /* Smooth transition */
+    position: relative; /* Keep image position */
+    top: -50%; /* Move the image up to show the top half */
 }
-
 
         .belt-holders .roster-card:hover img {
             transform: scale(1.05); /* Scale image on hover */
